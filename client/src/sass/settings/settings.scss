@@ -1,0 +1,128 @@
+.settings{
+    padding-top: 30px;
+    color: #013a66;
+    h2{
+        font-size: 20px;
+        text-decoration: underline;
+    }
+         header{
+            margin-bottom: 20px;
+            a{
+                display: inline-flex;
+            }
+        }
+        .employee__page__personal{
+            position: static;
+            margin-left: 0px!important;
+        }
+    &__permissions{
+        padding-left: 20px;
+       
+        &__list{
+            margin-top: 20px;
+            flex-direction: column;
+            display: flex;
+            background: white;
+            padding: 10px;
+            border: 1px solid rgba(1, 58, 102, 0.15);
+            li{
+                display: inline-flex;
+                margin-bottom: 20px;
+             
+              width: 300px;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                figure{
+                    transform: scale(0.8);
+                    transform-origin: left;
+                }
+            }
+        }
+    }   
+    &__select{
+     
+        &__list{
+
+            &__element{
+                align-items: center;
+                justify-content: center;
+               box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
+                width: 130px;
+                height: 140px;
+             
+                margin-right: 10px;
+                background: white;
+                transition: 0.2s all;
+                border: 1px solid transparent;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: none;
+                    border: 1px solid rgba(1, 58, 102, 0.15);
+                }
+                svg{
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+                h4{
+                    font-size: 18px;
+                    font-family: 'medium-font';
+                }
+            }
+        }
+    }
+    &__system{
+        h2{
+            margin-bottom: 10px;
+        }
+        &__loading{
+            display: flex;
+            justify-content: center;
+            z-index: 999;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          transition: 0.2s all;
+            &__content{
+                background: white;
+                width: 300px;
+                height: 200px;
+                padding: 20px;
+                position: relative;
+                align-items: center;
+                box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
+              padding-top: 50px;
+              top: 100px;
+              h3{
+                  font-size: 22px;
+              }
+              #loader{
+                  transform: translate(-50%, -10%);
+              }
+            }
+        }
+        &__section{
+            h3{
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .employee__page__personal{
+        padding-top: 0px!important;
+    }
+}
+
+
+.rtl__body{
+    .settings{
+        header{
+
+            svg{
+                transform: rotate(180deg);
+            }
+        }
+    }
+    
+}

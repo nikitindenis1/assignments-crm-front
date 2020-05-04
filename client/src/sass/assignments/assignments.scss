@@ -1,0 +1,232 @@
+.assignments {
+    height: 100%;
+    padding-top: 30px;
+    color: #013a66;
+    &__handle {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        min-height: 100%;
+        z-index: 10;
+        transition: 0.2s all;
+        .files__upload{
+            margin-bottom: 50px;
+        }
+        .DraftEditor-root{
+            height:99%;
+        }
+        .draft__content {
+            .rdw-editor-main {
+              height: 40vh!important;
+              max-height: 360px;
+            }
+        }
+        .overlay {
+            opacity: 0;
+        }
+
+        &__employee__page {
+            margin-top: 20px;
+
+            h3 {
+                margin-bottom: 10px;
+                font-size: 14px;
+                color: #013a66;
+                font-family: 'medium-font';
+            }
+
+            #assignments__handle__employee__status {
+                margin-bottom: 20px;
+
+                button {
+                    width: 120px;
+                    height: 35px;
+                    margin-right: 10px;
+                    font-size: 14px;
+                    font-family: 'medium-font';
+                    transition: 0.2s all;
+                }
+            }
+        }
+
+        &__form {
+            overflow-y: auto;
+            width: 90vw;
+            max-width: 900px;
+            height: 100%;
+            position: absolute;
+            left: 0%;
+            transform: translate(-100%);
+            top: 0px;
+            background: white;
+            padding: 20px;
+            transition: 0.3s all;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-shadow: 0px 0px 35px -9px rgba(0, 0, 0, 0.54);
+            -moz-box-shadow: 0px 0px 35px -9px rgba(0, 0, 0, 0.54);
+            box-shadow: 0px 0px 35px -9px rgba(0, 0, 0, 0.54);
+            z-index: 999;
+          
+            &__submit{
+                height: 40px;
+                margin-left: auto;
+                margin-top: auto;
+                bottom: 20px;
+                right: 20px;
+                span{
+                    height: 100%;
+                    button{
+                        height: 100%;
+                        width: 100px;
+                        border: none;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            &__close {
+                position: absolute;
+                background: transparent;
+                right: 20px;
+                top: 10px;
+                border: 0px;
+                transition: 0.2s all;
+                padding: 0px;
+                z-index: 99999;
+               
+                svg {
+                    color: black;
+                    font-size: 30px;
+                }
+            }
+
+            >h2 {
+                font-size: 18px;
+                color: #013a66;
+                margin-bottom: 10px;
+                font-family: 'medium-font';
+            }
+        }
+    }
+
+    &__list::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__list {
+
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        padding-bottom: 80px;
+
+        &__assignment:nth-child(2n) {
+            margin-right: 0px;
+        }
+
+        &__assignment {
+            margin-bottom: 10px;
+            border: 1px solid rgba(1, 58, 102, 0.15);
+            padding-bottom: 10px;
+            background: white;
+           padding: 10px;
+            width: 100%;
+            position: relative;
+            &__section{
+                margin-bottom: 10px;
+                ul{
+                    margin-top: 10px;
+                }
+
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+                h3{
+                    font-size: 18px;
+                    line-height: normal;
+                  text-decoration: underline;
+                }
+                
+                .rdw-editor-wrapper{
+                    padding-top: 5px;
+                }
+                h4{
+                    font-size: 16px;
+                }
+                &__file{
+                    box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
+                    margin-right: 5px;
+                    width: calc(100% / 3 - 5px);
+                    
+                    padding-left: 20px;
+                    padding-right: 10px;
+                    overflow: hidden;
+                  
+                    height: 30px;
+                    margin-bottom: 5px;
+                    display: inline-flex;
+                    a{
+                        color: #013a66;
+                        width: 100%;
+                        text-decoration: none;
+                        p{
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            width: 90%;
+                        }
+                    }
+                    &:nth-child(3n){
+                        margin-right: 0px;
+
+                    }
+                }
+        }
+    }
+}
+
+
+.assignment__loader {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+#assignments__handle--active {
+    opacity: 1;
+
+    >.assignments__handle__form {
+        transform: translate(0%);
+    }
+
+    .overlay {
+        opacity: 1;
+    }
+}
+
+
+.rtl__body{
+    .assignments__handle__form{
+        left: auto;
+        right: 0px;
+        transform: translate(100%);
+        &__close{
+            right: auto;
+            left: 20px;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+  
+
+    .employee__page .draft__content .rdw-editor-main {
+        height: 220px !important;
+    }
+
+    .assignments__handle__form {
+        width: 100vw;
+    }
+}

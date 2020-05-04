@@ -1,0 +1,5 @@
+export const SET_DATA_TO_EMPLOYEES_REDUCER = 'set data to employees reducer'
+export const UPDATE_NAVBAR_REDUCER = 'update navbar reducer'
+export const SET_DATA_TO_ASSIGNMENTS_REDUCER = 'sety data to assignments reducer'
+export const UPDATE_USER_REDUCER = 'update user reducer'
+export const UPDATE_GLOBAL_REDUCER = 'update global reducer'

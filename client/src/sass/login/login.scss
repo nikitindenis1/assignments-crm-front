@@ -1,0 +1,100 @@
+.login{
+    background: #f4f6f8;
+    height: 100vh;
+    &__signup__success{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 120%);
+        width: 400px;
+        height: 300px;
+        box-shadow:0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+        background: white;
+        padding: 30px;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease-in all;
+        opacity: 0;
+        z-index: 999;
+        h2{
+            font-size: 35px;
+            font-family: 'bold-font';
+            margin-bottom: 10px;
+        }
+        h3{
+            font-size: 25px;
+            font-family: 'medium-font';
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 18px;
+            opacity: 0.7;
+            text-align: center;
+
+        }
+        #loader{
+            position: relative;
+            top: 0px;
+            transform: none;
+
+            left: 0px;
+            opacity: 1!important;
+        }
+    }
+
+    &__form {
+        position: absolute;
+        width: 470px;
+        height: 500px;
+        top: 100px;
+        background: #fff;
+        box-shadow: 19px 4px 24px rgba(0,0,0,.1);
+        padding: 50px 30px 30px;
+        overflow: hidden;
+        .text__input {
+            height: 50px;
+
+            input {
+                border: 1px solid #e6e6e6;
+                border-radius: 0px;
+            }
+
+            label {
+                top: 40%;
+            }
+
+        }
+        .text__input--active{
+            
+            label{
+                transform: translate(-5px,-195%)!important;
+            }
+        }
+        h2{
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+    }
+    .submit__btn{
+        margin-top: auto;
+        width: 100%;
+        height: 45px;
+        button{
+           background:  rgba(0,145,255,.8);
+           border: none;
+           transition: 0.2s all;
+           color: white;
+           font-size: 16px;
+        }
+        button:hover{
+            background: rgba(0,145,255,1);
+        }
+    }
+}
+
+#login__signup__success--active{
+    transform: translate(-50%,-100%);
+    opacity: 1;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "caspian",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@babel/helper-regex": "^7.8.3",
+    "express": "^4.16.3",
+    "heroku-ssl-redirect": "^0.0.4",
+    "react-animated-number": "^0.4.4",
+    "react-countup": "^3.0.3",
+    "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.4.0"
+  }
+}
