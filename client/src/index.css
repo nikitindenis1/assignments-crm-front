@@ -574,7 +574,8 @@ input:focus::placeholder {
         margin-bottom: 0px;
         margin-right: 20px;
         position: relative;
-        overflow: hidden; }
+        overflow: hidden;
+        border-radius: 50%; }
       .employees__list__employee__name {
         width: calc(100% - 490px); }
       .employees__list__employee h3 {
@@ -959,34 +960,44 @@ input:focus::placeholder {
 .react-datepicker__day:hover,
 .react-datepicker__month-text:hover,
 .react-datepicker__quarter-text:hover {
-  border-radius: 0px !important;
-  background: rgba(0, 145, 255, 0.1) !important; }
+  border-radius: 0px !important; }
 
 .datepicker__flex__placeholder {
   position: absolute;
   width: 200px;
   height: 40px;
-  transform: translate(10px, 0px);
+  transform: translate(0px, 0px);
   z-index: 999;
+  padding-left: 10px;
   pointer-events: none;
   font-size: 16px;
   color: #013a66; }
   .datepicker__flex__placeholder svg {
     margin-right: 10px; }
 
-.react-datepicker-wrapper input {
+.react-datepicker__portal .react-datepicker__current-month, .react-datepicker__portal .react-datepicker-time__header {
+  font-size: 18px !important; }
+
+.datepicker__flex input {
   width: 170px;
   height: 40px;
   text-indent: 15px;
   font-size: 14px;
   color: #013a66;
+  border: 1px solid rgba(1, 58, 102, 0.2) !important;
   font-family: 'regular-font';
   cursor: pointer; }
-  .react-datepicker-wrapper input:focus {
+  .datepicker__flex input:focus {
     outline: none; }
 
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {
   padding-top: 10px !important; }
+
+.react-datepicker__day--keyboard-selected:hover, .react-datepicker__month-text--keyboard-selected:hover, .react-datepicker__quarter-text--keyboard-selected:hover {
+  background: #0091ff !important; }
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected {
+  background: #0091ff !important; }
 
 .lds-ellipsis {
   display: inline-block;
@@ -1585,7 +1596,6 @@ div[title="Superscript"] {
 .employee__page {
   padding-top: 40px;
   width: 100%;
-  min-height: 100%;
   overflow: hidden;
   position: relative; }
   .employee__page__assignments__list::-webkit-scrollbar {
@@ -2124,7 +2134,6 @@ div[title="Superscript"] {
     justify-content: center; } }
 
 .assignments {
-  height: 100%;
   padding-top: 30px;
   color: #013a66; }
   .assignments__handle {
@@ -2380,7 +2389,8 @@ div[title="Superscript"] {
   .login__form {
     top: 20px;
     width: calc(100% - 30px);
-    padding: 20px; }
+    padding: 20px;
+    height: calc(100% - 50px); }
   .login__form .text__input {
     height: 40px; } }
 

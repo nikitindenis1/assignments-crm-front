@@ -11,13 +11,13 @@ import FilesUpload from "../../../parts/FilesUpload";
 import SubmitButtons from "../../../parts/SubmitButtons";
 import EmployeeAssignmentsPopup from "../../employee-page/employee-assignments/EmployeeAssignmentsPopup";
 
-
 class HandleAssignment extends Component {
   constructor() {
     super();
     this.state = {
       assignment: {},
     };
+    this.componentRef = React.createRef();
   }
 
   componentDidMount() {
@@ -89,7 +89,12 @@ class HandleAssignment extends Component {
       })
     }, 50);
   }
+  scrolltop = () => {
+    console.log('laaaaaaaa')
+    this.componentRef.current.scrollTop = 0;
 
+
+  }
 
   render() {
     const { loaded, is_edit, validate, assignment, show_options , assignment_updated} = this.state;
@@ -102,6 +107,8 @@ class HandleAssignment extends Component {
       >
         <section className="overlay"></section>
         <form
+              ref={ this.componentRef }
+
           onSubmit={(e) => this.submitForm(e)}
           className="assignments__handle__form"
         >
@@ -192,6 +199,7 @@ class HandleAssignment extends Component {
               )}
 
               <SingleDatepicker
+              scrolltop = {this.scrolltop}
                 sendDate={this.updateStateAssignment}
                 property_name="deadline"
                 date={assignment ? assignment.deadline : ""}

@@ -327,20 +327,22 @@
 .react-datepicker__month-text:hover,
 .react-datepicker__quarter-text:hover {
   border-radius: 0px !important;
-  background: rgba(0, 145, 255, 0.1) !important;
+  // background: rgba(0, 145, 255, 0.1) !important;
 }
 
 .datepicker__flex {
-
+ 
   &__placeholder {
     position: absolute;
     width: 200px;
     height: 40px;
-    transform: translate(10px, 0px);
+    transform: translate(0px, 0px);
     z-index: 999;
+    padding-left: 10px;
     pointer-events: none;
     font-size: 16px;
     color: #013a66;
+  
 
     svg {
       margin-right: 10px;
@@ -348,8 +350,10 @@
 
   }
 }
-
-.react-datepicker-wrapper {
+.react-datepicker__portal .react-datepicker__current-month, .react-datepicker__portal .react-datepicker-time__header{
+  font-size: 18px!important;
+}
+.datepicker__flex{
 
   input {
     width: 170px;
@@ -357,7 +361,7 @@
     text-indent: 15px;
     font-size: 14px;
     color: #013a66;
-
+    border: 1px solid rgba(1, 58, 102, 0.2) !important;
     font-family: 'regular-font';
     cursor: pointer;
 
@@ -372,7 +376,14 @@
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {
   padding-top: 10px !important;
 }
-
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected{
+  &:hover{
+    background: #0091ff!important;
+  }
+}
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected{
+  background: #0091ff!important;
+}
 .lds-ellipsis {
   display: inline-block;
   position: absolute;
