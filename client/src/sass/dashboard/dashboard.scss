@@ -1,7 +1,9 @@
 .dashboard{
     padding-left: 50px;
     // width: var(--grid_width);
+    height: 100vh;
   overflow: hidden;
+  position: relative;
     margin: auto;
     &__categories{
         flex-wrap: wrap;
@@ -35,9 +37,11 @@
 @media only screen and (max-width:700px){
     .dashboard{
         padding-left: 0px;
-        padding-top: 50px;
+        height: calc(100vh - 50px);
+        top: 50px;
     }
     .rtl__body .dashboard{
         padding-right: 0px;
+        height: calc(100vh - 50px);
     }
 } 

@@ -606,6 +606,14 @@
 }
 
 .rtl__body {
+    .employee__page__personal{
+        padding-right: 20px;
+        padding-left: 0px;
+    }
+    .employee__page__personal__close{
+        right: 5px;
+        left: auto;
+    }
     .employee__assignment__comments__close{
         left: 10px;
         right: auto;
@@ -706,6 +714,12 @@
         margin-right: 0px;
     }
 }
+
+@media only screen and (max-width: 1200px){
+    .employee__page__personal{
+       width: calc(100% - 30px);
+    }
+} 
 @media only screen and (max-width: 840px){
     .employee__page__personal__details{
         width: 100%;
@@ -772,8 +786,6 @@
 
 @media only screen and (max-width: 550px) {
   .employee__page{
-      height: calc(100vh - 50px);
-      overflow: hidden;
   }
     .employee__page__assignments #employee__assignments{
     max-height: calc(100vh - 250px);
@@ -871,6 +883,12 @@
     .employee__page__personal .employee__page__edit{
         right: 0px;
         left: auto;
+    }
+    .rtl__body{
+        .employee__page__personal .employee__page__edit{
+            left: 0px;
+            right: auto;
+        }
     }
     .employee__assignment__comments > form{
         top: 20px;

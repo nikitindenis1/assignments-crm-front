@@ -426,7 +426,9 @@ input:focus::placeholder {
 
 .dashboard {
   padding-left: 50px;
+  height: 100vh;
   overflow: hidden;
+  position: relative;
   margin: auto; }
   .dashboard__categories {
     flex-wrap: wrap;
@@ -453,9 +455,11 @@ input:focus::placeholder {
 @media only screen and (max-width: 700px) {
   .dashboard {
     padding-left: 0px;
-    padding-top: 50px; }
+    height: calc(100vh - 50px);
+    top: 50px; }
   .rtl__body .dashboard {
-    padding-right: 0px; } }
+    padding-right: 0px;
+    height: calc(100vh - 50px); } }
 
 .employees {
   width: 100%;
@@ -706,8 +710,9 @@ input:focus::placeholder {
     padding-top: 20px; }
   .employees__handle__form {
     overflow-y: auto;
-    min-height: 100vh;
-    padding-bottom: 80px; } }
+    height: 100%; }
+    .employees__handle__form .submit__buttons__box {
+      margin-bottom: 100px; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
@@ -1990,6 +1995,14 @@ div[title="Superscript"] {
   padding-left: 20px;
   padding-right: 20px; }
 
+.rtl__body .employee__page__personal {
+  padding-right: 20px;
+  padding-left: 0px; }
+
+.rtl__body .employee__page__personal__close {
+  right: 5px;
+  left: auto; }
+
 .rtl__body .employee__assignment__comments__close {
   left: 10px;
   right: auto; }
@@ -2056,6 +2069,10 @@ div[title="Superscript"] {
   margin-left: 5px;
   margin-right: 0px; }
 
+@media only screen and (max-width: 1200px) {
+  .employee__page__personal {
+    width: calc(100% - 30px); } }
+
 @media only screen and (max-width: 840px) {
   .employee__page__personal__details {
     width: 100%; }
@@ -2099,9 +2116,6 @@ div[title="Superscript"] {
     margin: 0px; } }
 
 @media only screen and (max-width: 550px) {
-  .employee__page {
-    height: calc(100vh - 50px);
-    overflow: hidden; }
   .employee__page__assignments #employee__assignments {
     max-height: calc(100vh - 250px); }
   #employee__assignments__titles {
@@ -2162,6 +2176,9 @@ div[title="Superscript"] {
   .employee__page__personal .employee__page__edit {
     right: 0px;
     left: auto; }
+  .rtl__body .employee__page__personal .employee__page__edit {
+    left: 0px;
+    right: auto; }
   .employee__assignment__comments > form {
     top: 20px; }
   .employee__assignment__comments .rdw-editor-main {
@@ -2344,9 +2361,6 @@ div[title="Superscript"] {
     padding-bottom: 70px; } }
 
 @media only screen and (max-width: 600px) {
-  .assignments {
-    height: calc(100vh - 50px);
-    overflow: hidden; }
   .employee__page__menu__name {
     width: auto;
     padding-right: 20px; }
