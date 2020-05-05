@@ -114,13 +114,14 @@ class EmployeeAssignmentPage extends Component {
       style ={{
         opacity:page_loaded ? 1  :0
       }}
-      className="employee__assignment__page page__flex">
-        <ElementActions width="150px" options={options} />
-        <header>
+      className="employee__assignment__page">
+       
+        <header className='sticky__top flex__start'>
           <aside onClick={() => this.backToList()} className="flex__start">
             <NavigateBeforeIcon />
             <h5>{system_text.ASSIGNMENTS}</h5>
           </aside>
+          <ElementActions width="150px" options={options} />
         </header>
 
        {assignment ? <section className="employee__assignment__page__content">

@@ -114,7 +114,7 @@ class AssignmentTemplates extends Component {
     const { system_text } = this.props.global;
 
     return (
-      <div className="assignments">
+      <div className="assignments page__flex">
         <PopupWithFunction
           text={system_text.REMOVE_TEXT}
           name={`${assignment_to_remove ? assignment_to_remove.title : ""}?`}
@@ -136,13 +136,13 @@ class AssignmentTemplates extends Component {
         ) : (
           " "
         )}
-
-        <div className="page__flex">
-          <BtnWithTooltip
+         <div className='sticky__top'>
+         <BtnWithTooltip
             svg={<LibraryAddOutlinedIcon />}
             handleClick={() => this.toggleHandleAssignment(true)}
             tooltip={system_text.CREATE}
           />
+         </div>
           <ul className="assignments__list flex__start">
             {assignments_loaded &&
             assignments_list &&
@@ -166,7 +166,6 @@ class AssignmentTemplates extends Component {
               />
             )}
           </ul>
-        </div>
       </div>
     );
   }

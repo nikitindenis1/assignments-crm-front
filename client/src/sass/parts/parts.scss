@@ -3,7 +3,9 @@
   height: 40px;
   position: relative;
   margin-bottom: 25px;
-
+  &:last-child{
+    margin-bottom: 0px;
+  }
   &__copy {
     position: absolute;
     bottom: -16px;
@@ -103,6 +105,7 @@
   .btn__with__tooltip{
     margin-left: 10px;
     margin-right: 0px;
+
   }
 
 }
@@ -700,6 +703,8 @@ div[title="Superscript"] {
   margin-right: 10px;
   display: inline-flex;
   z-index: 9;
+  width: fit-content; 
+
   button {  
     width: 100%;
     background: transparent;

@@ -3,10 +3,8 @@
 }
 
 #employee__page__assignments__actions {
-    margin-top: 10px;
     height: 50px;
     margin-bottom: 20px;
-
     li {
         width: auto;
         padding-right: 60px;
@@ -48,23 +46,13 @@
     }
 }
 
-#employee__page--employee {
-    padding-left: 0px;
-}
+
 
 .employee__page {
-    width: 100%;
     position: relative;
-    &__assignments__list::-webkit-scrollbar {
-        display: none;
-
+    .sticky__top{
+        padding-top: 75px;
     }
-
-    .page__flex {
-        padding-top: 20px;
-
-    }
-
     &__assignments {
         transition: 0.2s all;
         &__close {
@@ -82,14 +70,7 @@
             }
         }
 
-        overflow: hidden;
-
-        &__header {
-            margin-bottom: 20px;
-        }
-
         #employee__assignments__titles {
-            margin-bottom: 10px;
             padding-left: 10px;
 
             h3 {
@@ -113,9 +94,6 @@
 
         #employee__assignments {
             width: 100%;
-            overflow-y: auto;
-            max-height: calc(100vh - 260px);
-            margin-top: 10px;
             padding-bottom: 120px;
             flex-wrap: wrap;
 
@@ -320,14 +298,17 @@
     }
 
     &__menu {
-        width: 100%;
+        position: fixed;
+        width: calc(100vw - 50px);
+        top: 0px;
+        left: 50px;
         transition: 0.2s all;
         height: 55px;
         // border-bottom: 1px solid rgba(33, 51, 90, 0.3);
         background: white;
         box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
         align-items: center;
-        z-index: 9;
+        z-index: 99;
         padding-left: 10px;
 
         >.cancel__btn {
@@ -402,13 +383,13 @@
 
 .employee__assignment__comments {
     position: fixed;
-    z-index: 10;
+    z-index: 999;
     left: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: 0.1s all;
+    transition: 0.2s all;
     &__close{
         position: absolute;
         right: 10px;
@@ -481,19 +462,22 @@
 
 .employee__assignment__page {
     color: #013a66;
-    margin-top: 20px;
-    overflow: hidden;
-    height: calc(100vh - 40px);
-    padding-top: 20px !important;
     transition: 0.2s all;
-
-
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     position: relative;
-
+    .sticky__top{
+        padding-top: 80px;
+        padding-bottom: 20px;
+    }
     header {
-
-        margin-bottom: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        .actions{
+            position: relative;
+            top: 0px;
+            right: 0px;
+        }
+      
 
         aside {
             cursor: pointer;
@@ -512,10 +496,6 @@
     }
 
     &__content {
-        height: calc(100vh - 100px);
-        padding-bottom: 60px;
-        overflow-y: auto;
-
         &__section {
             margin-bottom: 10px;
             background: white;
@@ -637,8 +617,9 @@
             margin-right: 30px;
         }
     }
-
-    #employee__page__assignments__actions li {
+    #employee__page__assignments__actions {
+       
+     li {
         padding-right: 10px;
         padding-left: 60px;
         margin-right: 0px;
@@ -654,6 +635,7 @@
             margin-right: 5px;
         }
     }
+}
 
     .employee__page__assignments__list header {
         padding-right: 10px;
@@ -749,18 +731,15 @@
 }
 
 @media only screen and (max-width: 700px) {
-
+    .employee__page .sticky__top{
+        padding-top: 125px;
+    }
     .employee__page__menu {
         top: 50px;
         width: 100%;
         transform: none;
         left: 0px;
     }
-
-    #employee__page__menu--active {
-        transform: none;
-    }
-
     #employee__page__assignments__actions {
         justify-content: space-between;
     }
@@ -785,11 +764,6 @@
 
 
 @media only screen and (max-width: 550px) {
-  .employee__page{
-  }
-    .employee__page__assignments #employee__assignments{
-    max-height: calc(100vh - 250px);
-    }
     #employee__assignments__titles {
         display: none;
     }

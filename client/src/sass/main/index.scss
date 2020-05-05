@@ -86,7 +86,9 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 }
-
+*::-webkit-scrollbar{
+	display: none;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -107,7 +109,6 @@ body {
 	font-family: 'regular-font';
 	background: #f9f9f9;
 	transition: 0.2s all;
-	overflow: hidden;
 }
 
 ol,
@@ -167,7 +168,7 @@ table {
 	width: 1200px;
 margin: auto;
 height: auto;
-overflow: hidden;
+
 }
 
 @font-face {
@@ -221,7 +222,26 @@ input{
 button {
 	cursor: pointer;
 }
-
+.section__h2{
+	font-size: 18px;
+	text-decoration: underline;
+	color: #013a66;
+}
+.sticky__top{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	z-index: 9;
+	background: #f9f9f9;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	header{
+		margin-bottom: 20px;
+	}
+}
 .save__btn {
 	background: #0091ff;
 	color: white;
@@ -373,10 +393,8 @@ input:focus::placeholder {
 
 
 
-
 .titles__section {
-	margin-bottom: 10px;
-	margin-top: 20px;
+	
 	padding-left: 10px;
 
 	h3 {
@@ -482,6 +500,14 @@ input:focus::placeholder {
 	}
 }
 
+@media only screen and (max-width: 700px){
+	.sticky__top{
+		padding-top:70px;
+		header{
+			margin-bottom: 10px;
+		}
+	}
+}
 @media only screen and (max-width: 550px){
 	.system__file{
 		width: calc(50% - 5px);

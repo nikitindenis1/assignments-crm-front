@@ -90,7 +90,7 @@ class EmployeePage extends Component {
     const { system_text } = this.props.global;
     return page_loaded ?(
       <div
-        className="employee__page"
+        className="employee__page  page__flex"
         id={!user.is_manager ? "employee__page--employee" : ""}
       >
         {handle_employee ? (

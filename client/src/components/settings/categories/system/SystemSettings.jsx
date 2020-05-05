@@ -64,7 +64,7 @@ class SystemSettings extends Component {
     const {user} =this.props.user
     return (
       <div className="settings__system">
-          <header>
+          <header className='sticky__top'>
         <Link
         className='back__button flex__start'
         to ={user.is_manager ? SETTINGS_ROUTE  :EMPLOYEE_DASHBOARD_SETTINGS}>

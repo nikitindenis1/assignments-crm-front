@@ -31,6 +31,9 @@ class SettingsSelect extends Component {
       const {categories} = this.state
     return (
       <div className="settings__select">
+       <header className='sticky__top'>
+       <h2 className='section__h2'>{system_text.SETTINGS}</h2>
+       </header>
         <ul className="settings__select__list flex__start">
           {categories && categories.length > 0 ?
           categories.map((m) => {

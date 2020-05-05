@@ -105,6 +105,9 @@ video {
   font: inherit;
   vertical-align: baseline; }
 
+*::-webkit-scrollbar {
+  display: none; }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -123,8 +126,7 @@ body {
   line-height: 1;
   font-family: 'regular-font';
   background: #f9f9f9;
-  transition: 0.2s all;
-  overflow: hidden; }
+  transition: 0.2s all; }
 
 ol,
 ul {
@@ -173,8 +175,7 @@ table {
 .page__flex {
   width: 1200px;
   margin: auto;
-  height: auto;
-  overflow: hidden; }
+  height: auto; }
 
 @font-face {
   font-family: 'regular-font';
@@ -220,6 +221,25 @@ input {
 
 button {
   cursor: pointer; }
+
+.section__h2 {
+  font-size: 18px;
+  text-decoration: underline;
+  color: #013a66; }
+
+.sticky__top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9;
+  background: #f9f9f9;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .sticky__top header {
+    margin-bottom: 20px; }
 
 .save__btn {
   background: #0091ff;
@@ -331,8 +351,6 @@ input:focus::placeholder {
   color: transparent; }
 
 .titles__section {
-  margin-bottom: 10px;
-  margin-top: 20px;
   padding-left: 10px; }
   .titles__section h3 {
     font-size: 15px;
@@ -411,6 +429,12 @@ input:focus::placeholder {
     padding-right: 10px;
     margin: 0px; } }
 
+@media only screen and (max-width: 700px) {
+  .sticky__top {
+    padding-top: 70px; }
+    .sticky__top header {
+      margin-bottom: 10px; } }
+
 @media only screen and (max-width: 550px) {
   .system__file {
     width: calc(50% - 5px);
@@ -427,8 +451,6 @@ input:focus::placeholder {
 
 .dashboard {
   padding-left: 50px;
-  height: 100vh;
-  overflow: hidden;
   position: relative;
   margin: auto; }
   .dashboard__categories {
@@ -455,18 +477,13 @@ input:focus::placeholder {
 
 @media only screen and (max-width: 700px) {
   .dashboard {
-    padding-left: 0px;
-    height: calc(100vh - 50px);
-    top: 50px; }
+    padding-left: 0px; }
   .rtl__body .dashboard {
-    padding-right: 0px;
-    height: calc(100vh - 50px); } }
+    padding-right: 0px; } }
 
 .employees {
-  width: 100%;
-  margin: auto;
-  padding-top: 30px;
-  transition: 0.2s all; }
+  transition: 0.2s all;
+  position: relative; }
   .employees .titles__section {
     padding-left: 60px;
     margin-top: 0px; }
@@ -478,9 +495,6 @@ input:focus::placeholder {
     width: 100%;
     height: 40px;
     margin-bottom: 5px; }
-  .employees__header {
-    height: 35px;
-    margin-bottom: 20px; }
   .employees__handle {
     position: fixed;
     left: 0px;
@@ -488,7 +502,9 @@ input:focus::placeholder {
     width: 100%;
     height: 100%;
     transition: 0.2s all;
-    z-index: 10; }
+    z-index: 999; }
+    .employees__handle header {
+      margin-bottom: 20px; }
     .employees__handle .overlay {
       opacity: 0;
       transition: 0.2s all; }
@@ -520,12 +536,6 @@ input:focus::placeholder {
         .employees__handle__form__close svg {
           color: #013a66;
           font-size: 35px; }
-      .employees__handle__form > header {
-        margin-bottom: 20px; }
-        .employees__handle__form > header h2 {
-          font-size: 18px;
-          color: #013a66;
-          font-family: 'medium-font'; }
       .employees__handle__form__submit {
         margin-top: auto;
         justify-content: flex-end;
@@ -554,11 +564,8 @@ input:focus::placeholder {
   .employees__list::-webkit-scrollbar {
     display: none; }
   .employees__list {
-    margin-top: 0px;
     flex-wrap: wrap;
     color: #013a66;
-    max-height: calc(100% - 100px);
-    overflow-y: auto;
     padding-bottom: 120px; }
     .employees__list__employee:nth-child(4n) {
       margin-right: 0px; }
@@ -651,10 +658,6 @@ input:focus::placeholder {
 @media only screen and (max-width: 700px) {
   .employees .titles__section {
     display: none; }
-  .employees__list {
-    margin-top: 20px;
-    max-height: calc(100vh - 150px);
-    padding-bottom: 100px; }
   .employees__list__employee__stats {
     display: none; }
   #employee__mobile__stats {
@@ -707,12 +710,10 @@ input:focus::placeholder {
   .employees__handle__form__info {
     flex-direction: column;
     flex-wrap: nowrap; }
-  .employees {
-    padding-top: 20px; }
   .employees__handle__form {
     padding-bottom: 80px;
     overflow-y: auto;
-    height: 100%; } }
+    min-height: 100%; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
@@ -724,6 +725,8 @@ input:focus::placeholder {
   height: 40px;
   position: relative;
   margin-bottom: 25px; }
+  .text__input:last-child {
+    margin-bottom: 0px; }
   .text__input__copy {
     position: absolute;
     bottom: -16px;
@@ -1240,7 +1243,8 @@ div[title="Superscript"] {
   position: relative;
   margin-right: 10px;
   display: inline-flex;
-  z-index: 9; }
+  z-index: 9;
+  width: fit-content; }
   .btn__with__tooltip button {
     width: 100%;
     background: transparent;
@@ -1589,7 +1593,6 @@ div[title="Superscript"] {
   transform: translate(0px); }
 
 #employee__page__assignments__actions {
-  margin-top: 10px;
   height: 50px;
   margin-bottom: 20px; }
   #employee__page__assignments__actions li {
@@ -1623,19 +1626,12 @@ div[title="Superscript"] {
     opacity: 1;
     border-bottom: 2px solid #0091ff; }
 
-#employee__page--employee {
-  padding-left: 0px; }
-
 .employee__page {
-  width: 100%;
   position: relative; }
-  .employee__page__assignments__list::-webkit-scrollbar {
-    display: none; }
-  .employee__page .page__flex {
-    padding-top: 20px; }
+  .employee__page .sticky__top {
+    padding-top: 75px; }
   .employee__page__assignments {
-    transition: 0.2s all;
-    overflow: hidden; }
+    transition: 0.2s all; }
     .employee__page__assignments__close {
       position: absolute;
       background: transparent;
@@ -1647,10 +1643,7 @@ div[title="Superscript"] {
       .employee__page__assignments__close svg {
         color: #013a66;
         font-size: 25px; }
-    .employee__page__assignments__header {
-      margin-bottom: 20px; }
     .employee__page__assignments #employee__assignments__titles {
-      margin-bottom: 10px;
       padding-left: 10px; }
       .employee__page__assignments #employee__assignments__titles h3 {
         font-size: 15px;
@@ -1664,9 +1657,6 @@ div[title="Superscript"] {
       display: none; }
     .employee__page__assignments #employee__assignments {
       width: 100%;
-      overflow-y: auto;
-      max-height: calc(100vh - 260px);
-      margin-top: 10px;
       padding-bottom: 120px;
       flex-wrap: wrap; }
       .employee__page__assignments #employee__assignments .employee__page__assignment {
@@ -1806,13 +1796,16 @@ div[title="Superscript"] {
       font-weight: 500;
       color: #013a66; }
   .employee__page__menu {
-    width: 100%;
+    position: fixed;
+    width: calc(100vw - 50px);
+    top: 0px;
+    left: 50px;
     transition: 0.2s all;
     height: 55px;
     background: white;
     box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
     align-items: center;
-    z-index: 9;
+    z-index: 99;
     padding-left: 10px; }
     .employee__page__menu > .cancel__btn {
       width: calc(100% - 20px);
@@ -1862,13 +1855,13 @@ div[title="Superscript"] {
 
 .employee__assignment__comments {
   position: fixed;
-  z-index: 10;
+  z-index: 999;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: 0.1s all; }
+  transition: 0.2s all; }
   .employee__assignment__comments__close {
     position: absolute;
     right: 10px;
@@ -1918,15 +1911,19 @@ div[title="Superscript"] {
 
 .employee__assignment__page {
   color: #013a66;
-  margin-top: 20px;
-  overflow: hidden;
-  height: calc(100vh - 40px);
-  padding-top: 20px !important;
   transition: 0.2s all;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   position: relative; }
+  .employee__assignment__page .sticky__top {
+    padding-top: 80px;
+    padding-bottom: 20px; }
   .employee__assignment__page header {
-    margin-bottom: 20px; }
+    flex-direction: row;
+    justify-content: space-between; }
+    .employee__assignment__page header .actions {
+      position: relative;
+      top: 0px;
+      right: 0px; }
     .employee__assignment__page header aside {
       cursor: pointer;
       display: inline-flex; }
@@ -1934,59 +1931,55 @@ div[title="Superscript"] {
         margin-right: 5px; }
   .employee__assignment__page__content::-webkit-scrollbar {
     display: none; }
-  .employee__assignment__page__content {
-    height: calc(100vh - 100px);
-    padding-bottom: 60px;
-    overflow-y: auto; }
-    .employee__assignment__page__content__section {
-      margin-bottom: 10px;
-      background: white;
-      border: 1px solid rgba(1, 58, 102, 0.15);
-      padding: 10px;
-      position: relative; }
-      .employee__assignment__page__content__section aside {
-        position: absolute;
-        right: 10px;
-        top: 10px; }
-        .employee__assignment__page__content__section aside p {
-          margin-right: 5px;
-          font-size: 14px; }
-        .employee__assignment__page__content__section aside h5 {
-          font-family: 'medium-font';
-          font-size: 14px;
-          text-decoration: none; }
-    .employee__assignment__page__content__updated {
+  .employee__assignment__page__content__section {
+    margin-bottom: 10px;
+    background: white;
+    border: 1px solid rgba(1, 58, 102, 0.15);
+    padding: 10px;
+    position: relative; }
+    .employee__assignment__page__content__section aside {
       position: absolute;
-      bottom: 10px;
       right: 10px;
-      font-size: 14px; }
-    .employee__assignment__page__content h3 {
-      font-size: 20px;
-      text-decoration: underline;
-      margin-bottom: 10px; }
-    .employee__assignment__page__content h4 {
-      font-size: 17px; }
-    .employee__assignment__page__content__files ul {
-      margin-top: 10px; }
-      .employee__assignment__page__content__files ul li {
+      top: 10px; }
+      .employee__assignment__page__content__section aside p {
+        margin-right: 5px;
+        font-size: 14px; }
+      .employee__assignment__page__content__section aside h5 {
+        font-family: 'medium-font';
+        font-size: 14px;
+        text-decoration: none; }
+  .employee__assignment__page__content__updated {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px; }
+  .employee__assignment__page__content h3 {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 10px; }
+  .employee__assignment__page__content h4 {
+    font-size: 17px; }
+  .employee__assignment__page__content__files ul {
+    margin-top: 10px; }
+    .employee__assignment__page__content__files ul li {
+      max-width: 100%;
+      padding-left: 10px;
+      overflow: hidden;
+      height: 35px;
+      padding-right: 20px;
+      box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
+      display: inline-flex; }
+      .employee__assignment__page__content__files ul li a {
+        text-decoration: none;
         max-width: 100%;
-        padding-left: 10px;
-        overflow: hidden;
-        height: 35px;
-        padding-right: 20px;
-        box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
-        display: inline-flex; }
-        .employee__assignment__page__content__files ul li a {
-          text-decoration: none;
-          max-width: 100%;
-          color: #0091ff; }
-          .employee__assignment__page__content__files ul li a svg {
-            margin-right: 10px; }
-          .employee__assignment__page__content__files ul li a h5 {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 14px; }
+        color: #0091ff; }
+        .employee__assignment__page__content__files ul li a svg {
+          margin-right: 10px; }
+        .employee__assignment__page__content__files ul li a h5 {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 14px; }
 
 .suggestions__btn {
   width: fit-content;
@@ -2093,13 +2086,13 @@ div[title="Superscript"] {
     height: 250px; } }
 
 @media only screen and (max-width: 700px) {
+  .employee__page .sticky__top {
+    padding-top: 125px; }
   .employee__page__menu {
     top: 50px;
     width: 100%;
     transform: none;
     left: 0px; }
-  #employee__page__menu--active {
-    transform: none; }
   #employee__page__assignments__actions {
     justify-content: space-between; }
   #employee__page__assignments__actions li {
@@ -2116,8 +2109,6 @@ div[title="Superscript"] {
     margin: 0px; } }
 
 @media only screen and (max-width: 550px) {
-  .employee__page__assignments #employee__assignments {
-    max-height: calc(100vh - 250px); }
   #employee__assignments__titles {
     display: none; }
   #employee__page__assignments__actions li svg {
@@ -2193,16 +2184,17 @@ div[title="Superscript"] {
     height: 470px; } }
 
 .assignments {
-  overflow: hidden;
-  padding-top: 20px;
+  padding-bottom: 150px;
   color: #013a66; }
+  .assignments .sticky__top {
+    padding-bottom: 20px; }
   .assignments__handle {
     position: fixed;
     left: 0px;
     top: 0px;
     width: 100%;
     min-height: 100%;
-    z-index: 10;
+    z-index: 999;
     transition: 0.2s all; }
     .assignments__handle .files__upload {
       margin-bottom: 50px; }
@@ -2280,11 +2272,7 @@ div[title="Superscript"] {
   .assignments__list::-webkit-scrollbar {
     display: none; }
   .assignments__list {
-    max-height: calc(100vh - 110px);
-    overflow-y: auto;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    padding-bottom: 80px; }
+    flex-wrap: wrap; }
     .assignments__list__assignment:nth-child(2n) {
       margin-right: 0px; }
     .assignments__list__assignment {
@@ -2355,10 +2343,7 @@ div[title="Superscript"] {
   .assignments__handle__form {
     padding-bottom: 160px; }
     .assignments__handle__form .files__upload {
-      margin-bottom: 0px; }
-  .assignments__list {
-    max-height: calc(100vh - 150px);
-    padding-bottom: 70px; } }
+      margin-bottom: 0px; } }
 
 @media only screen and (max-width: 600px) {
   .employee__page__menu__name {
@@ -2468,40 +2453,36 @@ div[title="Superscript"] {
       height: auto !important; }
 
 .settings {
-  padding-top: 30px;
-  color: #013a66;
-  min-height: 100vh; }
+  color: #013a66; }
   .settings h2 {
     font-size: 20px;
     text-decoration: underline; }
-  .settings header {
-    margin-bottom: 20px; }
-    .settings header a {
-      display: inline-flex; }
+  .settings header a {
+    display: inline-flex; }
   .settings .employee__page__personal {
     position: static;
     margin-left: 0px !important;
     transform: none !important;
-    width: 100%; }
-  .settings__permissions {
-    padding-left: 20px; }
-    .settings__permissions__list {
-      margin-top: 20px;
-      flex-direction: column;
-      display: flex;
-      background: white;
-      padding: 10px;
-      border: 1px solid rgba(1, 58, 102, 0.15); }
-      .settings__permissions__list li {
-        display: inline-flex;
-        margin-bottom: 20px;
-        width: 300px; }
-        .settings__permissions__list li:last-child {
-          margin-bottom: 0px; }
-        .settings__permissions__list li figure {
-          transform: scale(0.8);
-          transform-origin: left; }
+    width: 100%;
+    margin-top: 2px; }
+  .settings__permissions__list {
+    margin-top: 20px;
+    flex-direction: column;
+    display: flex;
+    background: white;
+    padding: 10px;
+    border: 1px solid rgba(1, 58, 102, 0.15); }
+    .settings__permissions__list li {
+      display: inline-flex;
+      margin-bottom: 20px;
+      width: 300px; }
+      .settings__permissions__list li:last-child {
+        margin-bottom: 0px; }
+      .settings__permissions__list li figure {
+        transform: scale(0.8);
+        transform-origin: left; }
   .settings__select__list {
+    padding-top: 2px;
     flex-wrap: wrap; }
     .settings__select__list__element {
       align-items: center;
@@ -2557,16 +2538,10 @@ div[title="Superscript"] {
   transform: rotate(180deg); }
 
 @media only screen and (max-width: 550px) {
-  .settings {
-    min-height: calc(100vh - 50px); } }
-
-@media only screen and (max-width: 550px) {
   .settings .employee__page__personal {
     height: calc(100vh - 190px); }
   .settings {
-    width: 100vw;
-    padding-left: 15px;
-    padding-right: 15px; } }
+    width: 100vw; } }
 
 @media only screen and (max-width: 450px) {
   .settings__select__list__element {

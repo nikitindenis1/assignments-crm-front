@@ -139,7 +139,7 @@ class HandleAssignment extends Component {
             
             <CloseIcon />
           </button>
-          <h2>{is_edit ? system_text.EDIT :system_text.CREATE}</h2>
+          <h2 className='section__h2'>{is_edit ? system_text.EDIT :system_text.CREATE}</h2>
           {from_employee_page && !is_edit? 
             <button 
             type='button'

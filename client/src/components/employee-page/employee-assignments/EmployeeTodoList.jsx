@@ -74,7 +74,8 @@ class EmployeeTodoList extends Component {
         }}
         className="employee__page__assignments"
       >
-        <div className="page__flex">
+       
+        <div className='sticky__top'>
           <header className="employee__page__assignments__header flex__start">
             {hasPermission(user, permissions, CREATE_ASSIGNMENTS) ? (
             
@@ -89,8 +90,7 @@ class EmployeeTodoList extends Component {
               ""
             )}
           </header>
-          <div className="employee__page__assignments__flex ">
-            <ul
+          <ul
               className="flex__start"
               id="employee__page__assignments__actions"
             >
@@ -121,6 +121,8 @@ class EmployeeTodoList extends Component {
                })}
               </section>
             ) : null}
+        </div>
+
             <ul className="flex__start" id="employee__assignments">
               {!assignments_loaded ? (
                 <AssignmentLoader arr={[...Array(3).keys()]} />
@@ -152,9 +154,9 @@ class EmployeeTodoList extends Component {
                 )
               )}
             </ul>
-          </div>
+         
         </div>
-      </div>
+    
     );
   }
 }

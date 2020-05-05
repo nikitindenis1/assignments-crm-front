@@ -42,7 +42,7 @@ class PermissionsSettings extends Component {
     const {system_text} =this.props.global
     return (
       <div className="settings__permissions">
-        <header>
+        <header className='sticky__top'>
         <Link
         className='back__button flex__start'
         to ={user.is_manager ? SETTINGS_ROUTE  :EMPLOYEE_DASHBOARD_SETTINGS}>

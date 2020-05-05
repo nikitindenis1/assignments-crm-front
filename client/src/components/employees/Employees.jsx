@@ -8,10 +8,8 @@ import PopupWithFunction from "../../parts/PopupWithFunction";
 import { apiGetRequest, apiPostRequest } from "../../tools/api";
 import EmployeeLoader from "./parts/EmployeeLoader";
 import NoData from "../../parts/NoData";
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import BtnWithTooltip from "../../parts/BtnWithTooltip";
-
-
 
 class Employees extends Component {
   constructor() {
@@ -23,16 +21,16 @@ class Employees extends Component {
 
   async componentDidMount() {
     const api = "employee/all";
-   setTimeout(() => {
-    this.setState({
-      page_loaded:true,
-    })
-   }, 20);
+    setTimeout(() => {
+      this.setState({
+        page_loaded: true,
+      });
+    }, 20);
     const res = await apiGetRequest(api);
     if (res.ok) {
       this.setState({
         loaded: true,
-        employees_list:res.result
+        employees_list: res.result,
       });
     }
   }
@@ -57,21 +55,23 @@ class Employees extends Component {
   remove = async () => {
     const { employee_to_remove, employees_list } = this.state;
     this.setState({
-      remove_loading:true
-    })
+      remove_loading: true,
+    });
     const api = "employee/delete";
     const res = await apiPostRequest(api, { id: employee_to_remove._id });
     if (res.ok) {
       this.props.removeEmployee(employee_to_remove, employees_list);
       this.setState({
-        employees_list:employees_list.filter(m => m._id !== employee_to_remove._id)
-      })
+        employees_list: employees_list.filter(
+          (m) => m._id !== employee_to_remove._id
+        ),
+      });
       this.close();
     }
     setTimeout(() => {
       this.setState({
-        remove_loading:false
-      })
+        remove_loading: false,
+      });
     }, 400);
   };
   close = () => {
@@ -86,14 +86,13 @@ class Employees extends Component {
     });
   };
 
-  saveEmployee = async (profile, pw_changed) => {  
+  saveEmployee = async (profile, pw_changed) => {
     if (pw_changed) await this.resetEmployeePassword(profile);
     if (profile._id) this.updateEmployee(profile);
     else this.createEmployee(profile);
-    };
+  };
 
   createEmployee = async (profile) => {
- 
     const api = "employee/create";
     const res = await apiPostRequest(api, profile);
     if (res.ok) {
@@ -101,17 +100,21 @@ class Employees extends Component {
         "success",
         "Employee created successfully"
       );
-      let employees_list = JSON.parse(JSON.stringify(this.state.employees_list))
+      let employees_list = JSON.parse(
+        JSON.stringify(this.state.employees_list)
+      );
       this.setState({
-        employees_list:[res.result, ...employees_list]
-      })
+        employees_list: [res.result, ...employees_list],
+      });
     } else {
-      this.props.updateGlobalReducer("error", res.result ? res.result : "Failed to create employee");
+      this.props.updateGlobalReducer(
+        "error",
+        res.result ? res.result : "Failed to create employee"
+      );
     }
   };
 
   updateEmployee = async (profile) => {
-  
     const api = "employee/update";
     const res = await apiPostRequest(api, profile);
     if (res.ok) {
@@ -119,13 +122,15 @@ class Employees extends Component {
         "success",
         "Employee updated successfully"
       );
-      let employees_list = JSON.parse(JSON.stringify(this.state.employees_list))
-      let index = employees_list.findIndex(m => m._id == profile._id)
-      if(index >= 0){
-        employees_list.splice(index,1 ,res.result)
+      let employees_list = JSON.parse(
+        JSON.stringify(this.state.employees_list)
+      );
+      let index = employees_list.findIndex((m) => m._id == profile._id);
+      if (index >= 0) {
+        employees_list.splice(index, 1, res.result);
         this.setState({
-          employees_list
-        })
+          employees_list,
+        });
       }
     } else {
       this.props.updateGlobalReducer("error", "Failed to update employee");
@@ -141,7 +146,6 @@ class Employees extends Component {
   };
 
   render() {
-   
     const {
       employees_list,
       employee,
@@ -150,17 +154,17 @@ class Employees extends Component {
       list_view,
       loaded,
       page_loaded,
-      remove_loading
+      remove_loading,
     } = this.state;
-    const {system_text} = this.props.global
-  
+    const { system_text } = this.props.global;
 
     return (
-      <div 
-      style ={{
-        opacity:page_loaded ? 1 : 0
-      }}
-      className="employees">
+      <div
+        style={{
+          opacity: page_loaded ? 1 : 0,
+        }}
+        className="employees page__flex"
+      >
         <PopupWithFunction
           text={system_text.REMOVE_TEXT}
           name={`${employee_to_remove ? employee_to_remove.name : ""}?`}
@@ -169,7 +173,7 @@ class Employees extends Component {
           close={this.close}
           submit_text={system_text.YES}
           close_text={system_text.NO}
-          loading = {remove_loading}
+          loading={remove_loading}
         />
         {handle_employee ? (
           <HandleProfile
@@ -183,42 +187,45 @@ class Employees extends Component {
         ) : (
           ""
         )}
-        <div className="page__flex">
-          <header className="flex__start employees__header">
+
+        <div className="sticky__top">
+          <header className="flex__start">
             <BtnWithTooltip
-                   svg = {<PersonAddIcon />}
-                   handleClick = {this.toggleHandleEmployee}
-                   value = {true}
-                   tooltip = {system_text.CREATE}
-                    />
+              svg={<PersonAddIcon />}
+              handleClick={this.toggleHandleEmployee}
+              value={true}
+              tooltip={system_text.CREATE}
+            />
           </header>
-         {loaded && employees_list && employees_list.length > 0 ? <>
-         <section className='titles__section flex__start'>
+          <section className="titles__section flex__start">
             {system_text.EMPLOYEES_TITLES.map((m, i) => {
-              return <h3 key = {i}>{m}</h3>
+              return <h3 key={i}>{m}</h3>;
             })}
           </section>
-          <ul className="employees__list flex__start">
-            {
-              employees_list.map((m) => {
+        </div>
+
+        {loaded && employees_list && employees_list.length > 0 ? (
+          <>
+            <ul className="employees__list flex__start">
+              {employees_list.map((m) => {
                 return (
                   <Employee
                     list_view={list_view}
                     toggleHandleEmployee={this.toggleHandleEmployee}
                     employee={m}
                     key={m._id}
-                    system_text = {system_text}
+                    system_text={system_text}
                     handleRemove={this.handleRemove}
                   />
                 );
-              })
-            }
-          </ul>
-         </> : !loaded ? 
-        <EmployeeLoader arr={[...Array(5).keys()]} /> : 
-        <NoData text = {system_text.NO_EMPLOYEES}/>
-        }
-        </div>
+              })}
+            </ul>
+          </>
+        ) : !loaded ? (
+          <EmployeeLoader arr={[...Array(5).keys()]} />
+        ) : (
+          <NoData text={system_text.NO_EMPLOYEES} />
+        )}
       </div>
     );
   }

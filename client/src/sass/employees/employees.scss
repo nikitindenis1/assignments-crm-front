@@ -1,9 +1,9 @@
 .employees {
-    width: 100%;
-    margin: auto;
-    padding-top: 30px;
     transition: 0.2s all;
-
+    position: relative;
+    
+  
+    
     .titles__section {
         padding-left: 60px;
         margin-top: 0px;
@@ -24,10 +24,6 @@
         margin-bottom: 5px;
     }
 
-    &__header {
-        height: 35px;
-            margin-bottom: 20px;
-    }
 
     &__handle {
         position: fixed;
@@ -37,8 +33,10 @@
         height: 100%;
         transition: 0.2s all;
 
-        z-index: 10;
-
+        z-index: 999;
+        header{
+            margin-bottom: 20px;
+        }
         .overlay {
             opacity: 0;
             transition: 0.2s all;
@@ -82,15 +80,6 @@
                 }
             }
 
-            >header {
-                margin-bottom: 20px;
-
-                h2 {
-                    font-size: 18px;
-                    color: #013a66;
-                    font-family: 'medium-font';
-                }
-            }
 
             &__submit {
                 margin-top: auto;
@@ -142,11 +131,8 @@
     }
 
     &__list {
-        margin-top: 0px;
         flex-wrap: wrap;
         color: #013a66;
-        max-height: calc(100% - 100px);
-        overflow-y: auto;
         padding-bottom: 120px;
 
         &__employee:nth-child(4n) {
@@ -288,9 +274,7 @@
         display: none;
     }
     .employees__list{
-        margin-top: 20px;
-        max-height: calc(100vh - 150px);
-        padding-bottom: 100px;
+       
     }
     .employees__list__employee__stats{
         display: none;
@@ -370,13 +354,11 @@
         flex-direction: column;
         flex-wrap: nowrap;
     }
-    .employees {
-        padding-top: 20px;
-    }
+   
     .employees__handle__form{
        padding-bottom: 80px;
         overflow-y: auto;
-       height: 100%;
+       min-height: 100%;
        
         
     }

@@ -102,7 +102,7 @@ class HandleProfile extends Component {
             <CloseIcon />
           </button>
           <header className="flex__between">
-            <h2>{is_edit ? edit_text : create_text}</h2>
+            <h2 className='section__h2'>{is_edit ? edit_text : create_text}</h2>
           </header>
           <span 
           style ={{

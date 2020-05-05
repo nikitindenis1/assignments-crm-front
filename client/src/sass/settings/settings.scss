@@ -1,13 +1,11 @@
 .settings{
-    padding-top: 30px;
     color: #013a66;
-    min-height: 100vh;
     h2{
         font-size: 20px;
         text-decoration: underline;
     }
          header{
-            margin-bottom: 20px;
+          
             a{
                 display: inline-flex;
             }
@@ -17,10 +15,10 @@
             margin-left: 0px!important;
             transform: none!important;
            width: 100%;
+           margin-top: 2px;
         
         }
     &__permissions{
-        padding-left: 20px;
        
         &__list{
             margin-top: 20px;
@@ -47,6 +45,7 @@
     &__select{
      
         &__list{
+            padding-top: 2px;
             flex-wrap: wrap;
             &__element{
                 align-items: center;
@@ -129,19 +128,13 @@
     }
     
 }
-@media only screen and (max-width: 550px){
-    .settings{
-        min-height: calc(100vh - 50px);
-    }
-}
+
 @media only screen and (max-width: 550px){
     .settings .employee__page__personal{
         height: calc(100vh - 190px);
     }
     .settings{
         width: 100vw;
-        padding-left: 15px;
-        padding-right: 15px;
     }
 }
 
