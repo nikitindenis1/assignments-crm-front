@@ -77,6 +77,7 @@ class SingleDatepicker extends Component {
             minDate={moment().toDate()}
             // timeIntervals={15}
             // timeCaption="time"
+            onFocus={(e) => e.target.readOnly = true}
             dateFormat="MMMM d, yyyy"
             onChangeRaw={this.handleDateChangeRaw}
             withPortal = {portal}

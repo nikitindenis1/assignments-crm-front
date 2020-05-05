@@ -290,7 +290,7 @@
     }
     .employees__list{
         margin-top: 20px;
-        height: calc(100vh - 150px);
+        max-height: calc(100vh - 150px);
         padding-bottom: 100px;
     }
     .employees__list__employee__stats{
@@ -371,7 +371,7 @@
         overflow-y: auto;
         height: 100vh;
         .submit__buttons__box{
-            margin-bottom: 60px;
+            margin-bottom: 100px;
         }
     }
 }

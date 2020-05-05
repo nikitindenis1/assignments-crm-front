@@ -395,6 +395,7 @@ input:focus::placeholder {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.15);
 	animation: glow 3s linear forwards infinite;
+	border-radius: 50%;
 }
 
 .system__file {
