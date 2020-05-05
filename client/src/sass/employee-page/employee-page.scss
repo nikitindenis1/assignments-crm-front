@@ -739,6 +739,10 @@
         width: 100%;
         transform: none;
         left: 0px;
+        padding-left: 0px;
+        figure{
+            margin-left: 15px;
+        }
     }
     #employee__page__assignments__actions {
         justify-content: space-between;
@@ -798,10 +802,6 @@
             transform: translate(0px) !important;
             top: 10px !important;
         }
-    }
-
-    .employee__page .page__flex {
-        padding-top: 20px;
     }
 
     .employee__page__assignments__header {

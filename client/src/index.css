@@ -106,7 +106,8 @@ video {
   vertical-align: baseline; }
 
 *::-webkit-scrollbar {
-  display: none; }
+  display: none;
+  background: transparent; }
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -502,7 +503,7 @@ input:focus::placeholder {
     width: 100%;
     height: 100%;
     transition: 0.2s all;
-    z-index: 999; }
+    z-index: 999999999; }
     .employees__handle header {
       margin-bottom: 20px; }
     .employees__handle .overlay {
@@ -711,9 +712,11 @@ input:focus::placeholder {
     flex-direction: column;
     flex-wrap: nowrap; }
   .employees__handle__form {
-    padding-bottom: 80px;
     overflow-y: auto;
-    min-height: 100%; } }
+    min-height: 100%;
+    position: fixed; }
+    .employees__handle__form .submit__buttons__box {
+      margin-bottom: 100px; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
@@ -1508,7 +1511,8 @@ div[title="Superscript"] {
     height: 50px;
     display: flex;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    z-index: 999; }
     .navbar__list {
       transform: translate(-100%);
       align-items: flex-start;
@@ -2092,7 +2096,10 @@ div[title="Superscript"] {
     top: 50px;
     width: 100%;
     transform: none;
-    left: 0px; }
+    left: 0px;
+    padding-left: 0px; }
+    .employee__page__menu figure {
+      margin-left: 15px; }
   #employee__page__assignments__actions {
     justify-content: space-between; }
   #employee__page__assignments__actions li {
@@ -2131,8 +2138,6 @@ div[title="Superscript"] {
     .employee__page__assignment .actions {
       transform: translate(0px) !important;
       top: 10px !important; }
-  .employee__page .page__flex {
-    padding-top: 20px; }
   .employee__page__assignments__header {
     margin-bottom: 10px; }
   #employee__page__assignments__actions {
