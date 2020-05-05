@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2a4f3f8.chunk.css",
+    "main.css": "/static/css/main.9ce07149.chunk.css",
     "main.js": "/static/js/main.f5487d22.chunk.js",
     "main.js.map": "/static/js/main.f5487d22.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.abd5418a.js",
@@ -9,10 +9,10 @@
     "static/js/2.360483c8.chunk.js": "/static/js/2.360483c8.chunk.js",
     "static/js/2.360483c8.chunk.js.map": "/static/js/2.360483c8.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.240e429011dbc672975bd99c7ff9b9ad.js": "/precache-manifest.240e429011dbc672975bd99c7ff9b9ad.js",
+    "precache-manifest.3fcefe9b397f2fb67c13d4033049ff84.js": "/precache-manifest.3fcefe9b397f2fb67c13d4033049ff84.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.26dee666.chunk.css.map": "/static/css/2.26dee666.chunk.css.map",
-    "static/css/main.d2a4f3f8.chunk.css.map": "/static/css/main.d2a4f3f8.chunk.css.map",
+    "static/css/main.9ce07149.chunk.css.map": "/static/css/main.9ce07149.chunk.css.map",
     "static/media/index.css": "/static/media/Heebo-Regular.e4693fd8.ttf",
     "static/media/israel.svg": "/static/media/israel.36a29225.svg",
     "static/media/usa.svg": "/static/media/usa.a035edad.svg"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.abd5418a.js",
     "static/css/2.26dee666.chunk.css",
     "static/js/2.360483c8.chunk.js",
-    "static/css/main.d2a4f3f8.chunk.css",
+    "static/css/main.9ce07149.chunk.css",
     "static/js/main.f5487d22.chunk.js"
   ]
 }

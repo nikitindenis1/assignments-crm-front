@@ -123,7 +123,8 @@ body {
   line-height: 1;
   font-family: 'regular-font';
   background: #f9f9f9;
-  transition: 0.2s all; }
+  transition: 0.2s all;
+  overflow: hidden; }
 
 ol,
 ul {
@@ -709,10 +710,9 @@ input:focus::placeholder {
   .employees {
     padding-top: 20px; }
   .employees__handle__form {
+    padding-bottom: 80px;
     overflow-y: auto;
-    height: 100%; }
-    .employees__handle__form .submit__buttons__box {
-      margin-bottom: 100px; } }
+    height: 100%; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
