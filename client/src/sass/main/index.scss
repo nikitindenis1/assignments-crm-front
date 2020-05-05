@@ -161,9 +161,9 @@ table {
 
 
 .page__flex {
-	width: 1000px;
-	margin-right: auto;
-	margin-left: 30px;
+	width: 1200px;
+margin: auto;
+height: auto;
 }
 
 @font-face {
@@ -441,10 +441,7 @@ input:focus::placeholder {
 .rtl__body{
 	direction: rtl;
 
-	.page__flex{
-		margin-left: auto;
-		margin-right: 30px;
-	}
+	
 	.rdw-dropdown-carettoclose,
 	.rdw-dropdown-carettoopen{
 		right: auto;
@@ -475,5 +472,22 @@ input:focus::placeholder {
 		transform: translate(-50%);
 		position: relative;
 		margin: 0px;
+	}
+}
+
+@media only screen and (max-width: 550px){
+	.system__file{
+		width: calc(50% - 5px);
+		margin-right: 10px;
+		&:nth-child(2n){
+			margin-right: 0px;
+		}
+	}
+}
+
+@media only screen and (max-width: 420px){
+	.system__file{
+		width: 100%;
+		margin-right: 0px;
 	}
 }

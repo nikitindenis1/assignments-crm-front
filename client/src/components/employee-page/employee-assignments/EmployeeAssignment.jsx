@@ -6,7 +6,10 @@ import * as actions from "../../../actions/actions";
 import { withRouter } from "react-router";
 import { DELETE_ASSIGNMENTS } from "../../settings/categories/permissions/Permissions_keys";
 import { hasPermission } from "../../../functions/permission_functions";
-import { EMPLOYEE_ASSIGNMENT_ROUTE, EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE } from "../../../tools/routes";
+import {
+  EMPLOYEE_ASSIGNMENT_ROUTE,
+  EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE,
+} from "../../../tools/routes";
 
 class EmployeeAssignment extends Component {
   constructor() {
@@ -30,27 +33,33 @@ class EmployeeAssignment extends Component {
     }, 500);
   };
   goToAssignment = (m) => {
-    console.log(m)
-    const {user} = this.props.user
-   if(user.is_manager) {
-    this.props.history.push(EMPLOYEE_ASSIGNMENT_ROUTE
-      .replace(':id', m.employee_id).replace(':assignment_id', m._id))
-   }
-      else {
-        this.props.history.push(EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE
-          .replace(':id', user._id).replace(':assignment_id', m._id))
-      }
-  }
+    console.log(m);
+    const { user } = this.props.user;
+    if (user.is_manager) {
+      this.props.history.push(
+        EMPLOYEE_ASSIGNMENT_ROUTE.replace(":id", m.employee_id).replace(
+          ":assignment_id",
+          m._id
+        )
+      );
+    } else {
+      this.props.history.push(
+        EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE.replace(":id", user._id).replace(
+          ":assignment_id",
+          m._id
+        )
+      );
+    }
+  };
   render() {
     const { m } = this.props;
-    console.log(m)
-  const {permissions,  user} = this.props.user
+    console.log(m);
+    const { permissions, user } = this.props.user;
     const { hide } = this.state;
     let options = [
-     
       {
         text: "VIEW",
-        function:this.goToAssignment,
+        function: this.goToAssignment,
         param1: m,
       },
       {
@@ -72,7 +81,7 @@ class EmployeeAssignment extends Component {
         text: "REMOVE",
         function: this.props.handleDelete,
         param1: m,
-        disabled:!hasPermission(user, permissions, DELETE_ASSIGNMENTS)
+        disabled: !hasPermission(user, permissions, DELETE_ASSIGNMENTS),
       },
     ];
     options = options.filter((val) => {
@@ -84,20 +93,30 @@ class EmployeeAssignment extends Component {
         id={hide ? "employee__page__assignment__hidden" : ""}
         className="employee__page__assignment flex__start"
       >
-      
-         <h3>{m.title}</h3>
-         <h3>{m.deadline
-            ? moment(m.deadline).format("DD/MM/YY")
-            : "-"}</h3>
-              <ElementActions width="150px" 
-        options={options} />
+        <div>
+          <h4 style ={{
+            display:'none'
+          }}>Title</h4>
+          <h3>{m.title}</h3>
+        </div>
+        <div>
+          <h4
+          style ={{
+            display:'none'
+          }}
+          >Deadline</h4>
+          <h3>{m.deadline ? moment(m.deadline).format("DD/MM/YY") : "-"}</h3>
+        </div>
+        <ElementActions width="150px" options={options} />
       </li>
     );
   }
 }
 
-function mapStateToProps({user }) {
-  return {user };
+function mapStateToProps({ user }) {
+  return { user };
 }
 
-export default withRouter(connect(mapStateToProps, actions)(EmployeeAssignment));
+export default withRouter(
+  connect(mapStateToProps, actions)(EmployeeAssignment)
+);

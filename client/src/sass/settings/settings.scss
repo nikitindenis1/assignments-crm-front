@@ -14,6 +14,9 @@
         .employee__page__personal{
             position: static;
             margin-left: 0px!important;
+            transform: none!important;
+           width: 100%;
+        
         }
     &__permissions{
         padding-left: 20px;
@@ -43,7 +46,7 @@
     &__select{
      
         &__list{
-
+            flex-wrap: wrap;
             &__element{
                 align-items: center;
                 justify-content: center;
@@ -56,6 +59,7 @@
                 transition: 0.2s all;
                 border: 1px solid transparent;
                 cursor: pointer;
+                margin-bottom: 10px;
                 &:hover{
                     box-shadow: none;
                     border: 1px solid rgba(1, 58, 102, 0.15);
@@ -109,9 +113,7 @@
             }
         }
     }
-    .employee__page__personal{
-        padding-top: 0px!important;
-    }
+  
 }
 
 
@@ -125,4 +127,16 @@
         }
     }
     
+}
+
+@media only screen and (max-width: 450px){
+    .settings__select__list__element{
+        width: calc(50% - 5px);
+        &:nth-child(2n){
+            margin-right: 0px;
+        }
+    }
+    .settings__permissions{
+        padding-left: 0px;
+    }
 }

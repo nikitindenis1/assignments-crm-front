@@ -19,7 +19,9 @@ import {
 } from "../../settings/categories/permissions/Permissions_keys";
 import { connect } from "react-redux";
 import * as actions from "../../../actions/actions";
-import 'moment/locale/he';
+import "moment/locale/he";
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+
 
 class EmployeeAssignmentPage extends Component {
   constructor() {
@@ -60,8 +62,8 @@ class EmployeeAssignmentPage extends Component {
     }
   };
   render() {
-  const {system_text, language} = this.props.global
-    const { assignment  } = this.props;
+    const { system_text, language } = this.props.global;
+    const { assignment } = this.props;
     const { permissions, user } = this.props.user;
 
     let options = [
@@ -104,25 +106,23 @@ class EmployeeAssignmentPage extends Component {
       <div className="employee__assignment__page page__flex">
         <ElementActions width="150px" options={options} />
         <header>
-          <aside
-          onClick = {() => this.backToList()}
-          className="flex__start">
-            <ArrowBackIcon />
-    <h5>{system_text.ASSIGNMENTS}</h5>
+          <aside onClick={() => this.backToList()} className="flex__start">
+            <NavigateBeforeIcon />
+            <h5>{system_text.ASSIGNMENTS}</h5>
           </aside>
         </header>
 
         <section className="employee__assignment__page__content">
           <div className="employee__assignment__page__content__section">
             <aside className="flex__start">
-    <p>{system_text.STATUS}:</p>
+              <p>{system_text.STATUS}:</p>
               <h5>{system_text[assignment.status]}</h5>
             </aside>
-    <h3>{system_text.TITLE}</h3>
-            <h2>{assignment.title}</h2>
+            <h3>{system_text.TITLE}</h3>
+            <h4>{assignment.title}</h4>
           </div>
           <aside className="employee__assignment__page__content__section">
-    <h3>{system_text.CONTENT}</h3>
+            <h3>{system_text.CONTENT}</h3>
             {assignment.text ? (
               <Editor
                 toolbarHidden={true}
@@ -157,11 +157,13 @@ class EmployeeAssignmentPage extends Component {
           {assignment.deadline ? (
             <div className="employee__assignment__page__content__section">
               <h3>{system_text.DEADLINE}</h3>
-             <span className='flex__start'>
-             <h4>
-                {moment(assignment.deadline).locale(language.substring(0, 2)).format('dddd, LL')}
-              </h4>
-             </span>
+              <span className="flex__start">
+                <h4>
+                  {moment(assignment.deadline)
+                    .locale(language.substring(0, 2))
+                    .format("dddd, LL")}
+                </h4>
+              </span>
             </div>
           ) : null}
           {assignment.comments ? (
@@ -180,7 +182,7 @@ class EmployeeAssignmentPage extends Component {
             " "
           )}
           <div className="employee__assignment__page__content__section">
-          <h3>{system_text.LAST_UPDATED}</h3>
+            <h3>{system_text.LAST_UPDATED}</h3>
             <h4>{moment(assignment.updated_at).format("DD/MM/YY HH:mm")}</h4>
           </div>
         </section>

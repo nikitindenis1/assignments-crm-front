@@ -73,7 +73,7 @@ close = () => {
           {!hide_status ? (
             <li>
               <h5>{system_text.STATUS}</h5>
-              <h3>{active ? system_text.ATCIVE : system_text.INACTIVE}</h3>
+              <h3>{active ? system_text.ACTIVE : system_text.INACTIVE}</h3>
             </li>
           ) : (
             ""

@@ -207,6 +207,7 @@ class Employees extends Component {
                     toggleHandleEmployee={this.toggleHandleEmployee}
                     employee={m}
                     key={m._id}
+                    system_text = {system_text}
                     handleRemove={this.handleRemove}
                   />
                 );

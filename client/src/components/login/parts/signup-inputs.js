@@ -1,25 +1,25 @@
 const signup_inputs = [
   {
-    label: "Name",
+    label: "NAME",
     property_name: "name",
     type: "text",
-    empty_text: "Required field",
+    empty_text: "REQUIRED_FIELD",
     validation_text: "",
     required:true
   },
   {
-    label: "Email",
+    label: "EMAIL",
     property_name: "email",
     type: "email",
-    empty_text: "Required field",
-    validation_text: "Invalid email",
+    empty_text: "REQUIRED_FIELD",
+    validation_text: "INVALID_EMAIL",
     required:true
   },
   {
-    label: "Password",
+    label: "PASSWORD",
     property_name: "password",
     type: "password",
-    empty_text: "Required field",
+    empty_text: "REQUIRED_FIELD",
     validation_text: "",
     required:true
   },

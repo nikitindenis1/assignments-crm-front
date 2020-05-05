@@ -6,6 +6,7 @@ import Dropzone from "react-dropzone";
 import AddIcon from "@material-ui/icons/Add";
 import SmallLoader from "./SmallLoader";
 import AttachmentOutlinedIcon from '@material-ui/icons/AttachmentOutlined';
+import CloseIcon from '@material-ui/icons/Close';
 
 Backendless.initApp(
   "0C7F99A6-3715-126A-FF3C-3387261D5C00",
@@ -85,7 +86,7 @@ class FilesUpload extends Component {
                     </a>
                     <button 
                     type ='button'
-                    onClick = {() => this.removeFile(m)}>X</button>
+                    onClick = {() => this.removeFile(m)}><CloseIcon /></button>
                     </li>
                 })
             :''
