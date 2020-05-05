@@ -457,7 +457,6 @@ input:focus::placeholder {
 .employees {
   width: 100%;
   margin: auto;
-  height: 100%;
   padding-top: 30px;
   transition: 0.2s all; }
   .employees .titles__section {
@@ -2068,6 +2067,9 @@ div[title="Superscript"] {
       font-size: 14px; } }
 
 @media only screen and (max-width: 550px) {
+  .employee__page {
+    height: calc(100vh - 50px);
+    overflow: hidden; }
   .employee__page__assignments #employee__assignments {
     max-height: calc(100vh - 250px); }
   #employee__assignments__titles {
@@ -2127,17 +2129,23 @@ div[title="Superscript"] {
     height: 80px; }
   .employee__page__personal .employee__page__edit {
     right: 0px;
-    left: auto; } }
+    left: auto; }
+  .employee__assignment__comments > form {
+    top: 20px; }
+  .employee__assignment__comments .rdw-editor-main {
+    height: 180px; } }
 
 @media only screen and (max-width: 420px) {
-  .employee__assignment__comments .rdw-editor-main {
-    height: 200px; }
   .employee__assignment__comments__btns {
-    justify-content: center; } }
+    justify-content: center; }
+  .employee__assignment__comments .rdw-editor-main {
+    height: 150px; }
+  .employee__assignment__comments > form {
+    height: 470px; } }
 
 .assignments {
   overflow: hidden;
-  margin-top: 20px;
+  padding-top: 20px;
   color: #013a66; }
   .assignments__handle {
     position: fixed;
@@ -2304,6 +2312,9 @@ div[title="Superscript"] {
     padding-bottom: 70px; } }
 
 @media only screen and (max-width: 600px) {
+  .assignments {
+    height: calc(100vh - 50px);
+    overflow: hidden; }
   .employee__page__menu__name {
     width: auto;
     padding-right: 20px; }

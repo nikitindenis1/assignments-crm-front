@@ -765,7 +765,10 @@
 
 
 @media only screen and (max-width: 550px) {
-  
+  .employee__page{
+      height: calc(100vh - 50px);
+      overflow: hidden;
+  }
     .employee__page__assignments #employee__assignments{
     max-height: calc(100vh - 250px);
     }
@@ -863,14 +866,23 @@
         right: 0px;
         left: auto;
     }
+    .employee__assignment__comments > form{
+        top: 20px;
+    }
+    .employee__assignment__comments .rdw-editor-main{
+        height: 180px;
+    }
 }
 
 @media only screen and (max-width: 420px){
-    .employee__assignment__comments .rdw-editor-main{
-        height: 200px;
-    }
+   
     .employee__assignment__comments__btns{
         justify-content: center;
     }
-   
+    .employee__assignment__comments .rdw-editor-main{
+        height: 150px;
+    }
+    .employee__assignment__comments > form{
+        height: 470px;
+    }
 }

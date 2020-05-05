@@ -1,6 +1,6 @@
 .assignments {
     overflow: hidden;
-    margin-top: 20px;
+    padding-top: 20px;
     color: #013a66;
     &__handle {
         position: fixed;
@@ -233,7 +233,10 @@
     }
 }
 @media only screen and (max-width: 600px) {
-  
+    .assignments{
+        height: calc(100vh - 50px);
+        overflow: hidden;
+    }
     .employee__page__menu__name{
         width: auto;
         padding-right: 20px;
