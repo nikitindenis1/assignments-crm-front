@@ -128,6 +128,16 @@
     }
     
 }
+@media only screen and (max-width: 550px){
+    .settings .employee__page__personal{
+        height: calc(100vh - 190px);
+    }
+    .settings{
+        width: 100vw;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
 
 @media only screen and (max-width: 450px){
     .settings__select__list__element{

@@ -411,7 +411,9 @@ input:focus::placeholder {
     width: calc(50% - 5px);
     margin-right: 10px; }
     .system__file:nth-child(2n) {
-      margin-right: 0px; } }
+      margin-right: 0px; }
+  .actions__list__element {
+    height: 40px; } }
 
 @media only screen and (max-width: 420px) {
   .system__file {
@@ -692,12 +694,13 @@ input:focus::placeholder {
   .employees {
     padding-top: 20px; }
   .employees__handle__form {
-    padding-bottom: 100px;
-    overflow-y: auto; } }
+    padding-bottom: 70px;
+    overflow-y: auto;
+    height: 100vh; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
-    width: 100%;
+    width: 100vw;
     min-width: 0px; } }
 
 .text__input {
@@ -1388,7 +1391,9 @@ div[title="Superscript"] {
       margin-right: 0px; }
   .uploader {
     width: 70px;
-    height: 70px; } }
+    height: 70px; }
+  .btn__with__tooltip figure {
+    display: none; } }
 
 @media only screen and (max-width: 400px) {
   .files__upload__list li {
@@ -1616,7 +1621,7 @@ div[title="Superscript"] {
       overflow-y: auto;
       max-height: calc(100vh - 200px);
       margin-top: 10px;
-      padding-bottom: 200px;
+      padding-bottom: 100px;
       flex-wrap: wrap; }
       .employee__page__assignments #employee__assignments .employee__page__assignment {
         position: relative;
@@ -2054,6 +2059,8 @@ div[title="Superscript"] {
   #employee__page__assignments__actions li h5 {
     font-size: 12px;
     margin-left: 2px; }
+  #employee__page__assignments__actions li:hover {
+    background: transparent; }
   .employee__page__assignment {
     flex-direction: column;
     align-items: flex-start; }
@@ -2088,16 +2095,16 @@ div[title="Superscript"] {
     padding-bottom: 100px; }
   .employee__page__personal__details {
     flex-direction: column;
-    height: calc(100% - 40px);
-    flex-wrap: nowrap;
-    overflow-y: auto; }
+    flex-wrap: nowrap; }
     .employee__page__personal__details::-webkit-scrollbar {
       display: none; }
     .employee__page__personal__details li {
       width: 100%;
       margin-right: 0px; }
   .employee__page__personal {
-    height: calc(100% - 120px); }
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    top: 70px; }
   .employee__page__personal .employee__img {
     width: 80px;
     height: 80px; }
@@ -2364,6 +2371,14 @@ div[title="Superscript"] {
   transform: translate(-50%, -100%);
   opacity: 1; }
 
+@media only screen and (max-width: 550px) {
+  .login__form {
+    top: 20px;
+    width: calc(100% - 30px);
+    padding: 20px; }
+  .login__form .text__input {
+    height: 40px; } }
+
 .overview {
   background: white;
   width: 100%;
@@ -2464,6 +2479,14 @@ div[title="Superscript"] {
 
 .rtl__body .settings header svg {
   transform: rotate(180deg); }
+
+@media only screen and (max-width: 550px) {
+  .settings .employee__page__personal {
+    height: calc(100vh - 190px); }
+  .settings {
+    width: 100vw;
+    padding-left: 15px;
+    padding-right: 15px; } }
 
 @media only screen and (max-width: 450px) {
   .settings__select__list__element {
