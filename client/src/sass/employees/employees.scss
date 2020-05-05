@@ -310,6 +310,9 @@
             h3{
                width: 100%;
             }
+            &:nth-child(2){
+                transform: translate(-12px);
+            }
         }
     }
     .employees__list__employee {
@@ -345,7 +348,7 @@
         top: 10px;
     }
 
-s
+
 
     .employees__list__employee .employees__list__employee__info {
         width: 100%;
@@ -355,7 +358,10 @@ s
     .employees__list__employee .employees__list__employee__info span {
         margin-right: 0px;
     }
-
+    .employees__handle__form__info{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
     .employees {
         padding-top: 20px;
     }

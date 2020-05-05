@@ -769,6 +769,9 @@
 
 
 @media only screen and (max-width: 550px) {
+    .employee__page__assignments #employee__assignments{
+    max-height: calc(100vh - 240px);
+    }
     #employee__assignments__titles {
         display: none;
     }
@@ -815,7 +818,7 @@
     }
 
     .employee__page__assignments {
-        height: calc(100vh - 100px);
+        height: calc(100% - 200px);
     }
 
     .employee__page__assignments__suggestions {
@@ -851,7 +854,7 @@
         }
     }
     .employee__page__personal {
-        height: calc(100vh - 150px);
+        height: calc(100% - 120px);
     }
     .employee__page__personal .employee__img{
         width: 80px;

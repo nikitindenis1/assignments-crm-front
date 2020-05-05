@@ -4,9 +4,10 @@ const  BtnWithTooltip = (props) => {
   const { svg, tooltip , handleClick, value} = props;
   return (
     <div 
-    onClick = {() => handleClick(value)}
+  
+    onClick = {() => handleClick ? handleClick(value) : ''}
     className='btn__with__tooltip'>
-      <button>{svg}</button>
+      <button   type='button'>{svg}</button>
       <figure>{tooltip}</figure>
     </div>
   );

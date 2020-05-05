@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import generator from "generate-password";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import { connect } from 'react-redux'
-import * as actions from '../../actions/actions'
+import { connect } from "react-redux";
+import * as actions from "../../actions/actions";
+import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
+import RotateLeftOutlinedIcon from "@material-ui/icons/RotateLeftOutlined";
+import BtnWithTooltip from "../../parts/BtnWithTooltip";
+import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
 
 
 class PasswordInput extends Component {
@@ -11,14 +15,14 @@ class PasswordInput extends Component {
     super();
     this.state = {};
   }
-componentDidMount(){
-        const {is_edit} = this.props
-        if(is_edit){
-            this.setState({
-                active:true
-            })
-        }
-}
+  componentDidMount() {
+    const { is_edit } = this.props;
+    if (is_edit) {
+      this.setState({
+        active: true,
+      });
+    }
+  }
   generatePassword = () => {
     var password = generator.generate({
       length: 10,
@@ -26,15 +30,20 @@ componentDidMount(){
     });
     this.setState({
       generated: true,
-      error:false
+      error: false,
     });
+   setTimeout(() => {
+    this.setState({
+      generated:false
+    })
+   }, 3000);
     this.handleChange(password);
   };
 
   handleChange = (value) => {
     const { input } = this.props;
     const { property_name } = input;
-    this.props.updateParentState('pw_changed', true)
+    this.props.updateParentState("pw_changed", true);
     this.props.handleUpdate(property_name, value);
   };
   handleBlur = () => {
@@ -74,9 +83,10 @@ componentDidMount(){
   };
   render() {
     const { input, value, is_edit } = this.props;
+    console.log(value)
     const { empty_text, label } = input;
-    const { active, error, generated , copied} = this.state;
-    const {system_text} = this.props.global
+    const { active, error, generated, copied } = this.state;
+    const { system_text } = this.props.global;
     return (
       <div
         id="password__input"
@@ -86,66 +96,44 @@ componentDidMount(){
             : "text__input flex__start"
         }
       >
-        
         <input
-        placeholder = {system_text[label]}
-          onChange = {(e) => this.handleChange(e.target.value)}
+          placeholder={system_text[label]}
+          onChange={(e) => this.handleChange(e.target.value)}
           type="password"
-          value={value  ? value : !value && is_edit ? '********' : ''}
+          value={value ? value : !value && is_edit ? "********" : ""}
         />
 
-        <CopyToClipboard 
-        text={value}
-         onCopy={() => this.handleCopy()}>
-          <button
-            type="button"
-            style={{
-              opacity: value ? 1 : 0.6,
-              pointerEvents: value ? "all" : "none",
-              width:'80px'
-            }}
-            className="cancel__btn password__button flex__center"
-          >
-            {copied ? <CheckCircleIcon /> : ""}
-            {copied ? system_text.COPIED : system_text.COPY}
-          </button>
-        </CopyToClipboard>
-        {is_edit ? (
-          <button 
+        <CopyToClipboard text={value} onCopy={() => this.handleCopy()}>
+          <aside
           style ={{
-          width:'110px',
-          pointerEvents:generated  ? 'none'  :'all'
-        }}
-          type="button"
-          onClick = {() => this.generatePassword()}
-          className="cancel__btn password__button flex__center">
-          {generated ? <CheckCircleIcon /> : ""}
-            {generated ? system_text.done :system_text.RESET}
-          </button>
-        ) : (
-          <button
-          style ={{
-              pointerEvents:generated  ? 'none'  :'all',
-            width:'110px'
+            opacity:value ? 1 : 0.7,
+            pointerEvents:value ? 'all' : 'none'
           }}
-            type="button"
-            onClick={() => this.generatePassword()}
-            className="cancel__btn password__button flex__center"
           >
-            {generated ? <CheckCircleIcon /> : ""}
-            {generated ? system_text.GENERATED : system_text.GENERATE}
-          </button>
+          <BtnWithTooltip
+            svg={copied  ? <CheckCircleOutlineOutlinedIcon /> : <FileCopyOutlinedIcon />}
+            tooltip={system_text.COPY}
+          ></BtnWithTooltip >
+          </aside>
+        </CopyToClipboard>
+        <BtnWithTooltip
+          svg={generated  ?<CheckCircleOutlineOutlinedIcon /> : <RotateLeftOutlinedIcon />}
+          handleClick={this.generatePassword}
+          value={true}
+          tooltip={system_text.GENERATE}
+        />
+        {error ? (
+          <p className="text__input__error">{system_text[empty_text]}</p>
+        ) : (
+          ""
         )}
-        {error ? <p className="text__input__error">{system_text[empty_text]}</p> : ""}
       </div>
     );
   }
 }
 
-
 function mapStateToProps({ global }) {
-  return { global }
+  return { global };
 }
 
-export default (connect(mapStateToProps, actions)(PasswordInput))
-
+export default connect(mapStateToProps, actions)(PasswordInput);
