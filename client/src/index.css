@@ -699,7 +699,7 @@ input:focus::placeholder {
     padding-top: 20px; }
   .employees__handle__form {
     overflow-y: auto;
-    height: 100vh; }
+    min-height: 100vh; }
     .employees__handle__form .submit__buttons__box {
       margin-bottom: 100px; } }
 
