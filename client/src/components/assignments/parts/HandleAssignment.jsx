@@ -59,6 +59,9 @@ class HandleAssignment extends Component {
       });
       const errors = document.querySelectorAll(".text__input__error");
       if (errors.length === 0) {
+        this.setState({
+          loading:true
+        })
         if (is_edit) {
           await this.props.edit(assignment);
           this.close();
@@ -97,8 +100,8 @@ class HandleAssignment extends Component {
   }
 
   render() {
-    const { loaded, is_edit, validate, assignment, show_options , assignment_updated} = this.state;
-    const { from_employee_page, loading, assignments_list } = this.props;
+    const { loaded, is_edit, validate, assignment, show_options , assignment_updated, loading} = this.state;
+    const { from_employee_page, assignments_list } = this.props;
     const {system_text} = this.props.global
     return (
       <div

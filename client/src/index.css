@@ -403,10 +403,9 @@ input:focus::placeholder {
 
 @media only screen and (max-width: 1200px) {
   .page__flex {
-    left: 50%;
-    width: calc(100% - 30px);
-    transform: translate(-50%);
-    position: relative;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: 0px; } }
 
 @media only screen and (max-width: 550px) {
@@ -473,7 +472,7 @@ input:focus::placeholder {
     margin-bottom: 5px; }
   .employees__header {
     height: 35px;
-    margin-bottom: 15px; }
+    margin-bottom: 20px; }
   .employees__handle {
     position: fixed;
     left: 0px;
@@ -982,7 +981,7 @@ input:focus::placeholder {
   width: 170px;
   height: 40px;
   text-indent: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #013a66;
   border: 1px solid rgba(1, 58, 102, 0.2) !important;
   font-family: 'regular-font';
@@ -1217,7 +1216,8 @@ div[title="Superscript"] {
     font-size: 80px !important;
     margin-bottom: 10px; }
   .no__data h3 {
-    font-size: 25px; }
+    font-size: 25px;
+    text-decoration: none !important; }
   .no__data button {
     margin-top: 10px; }
     .no__data button svg {
@@ -1518,7 +1518,8 @@ div[title="Superscript"] {
           opacity: 1;
           background: transparent;
           height: 100%;
-          transform: none !important; }
+          transform: none !important;
+          font-size: 14px; }
           .navbar__list__link .smal__popup aside {
             display: none; }
       .navbar__list__mobile__placeholder {
@@ -1594,14 +1595,12 @@ div[title="Superscript"] {
   padding-left: 0px; }
 
 .employee__page {
-  padding-top: 40px;
   width: 100%;
-  overflow: hidden;
   position: relative; }
   .employee__page__assignments__list::-webkit-scrollbar {
     display: none; }
   .employee__page .page__flex {
-    padding-top: 40px; }
+    padding-top: 20px; }
   .employee__page__assignments {
     transition: 0.2s all;
     overflow: hidden; }
@@ -1634,9 +1633,9 @@ div[title="Superscript"] {
     .employee__page__assignments #employee__assignments {
       width: 100%;
       overflow-y: auto;
-      max-height: calc(100vh - 200px);
+      max-height: calc(100vh - 260px);
       margin-top: 10px;
-      padding-bottom: 100px;
+      padding-bottom: 120px;
       flex-wrap: wrap; }
       .employee__page__assignments #employee__assignments .employee__page__assignment {
         position: relative;
@@ -1644,7 +1643,7 @@ div[title="Superscript"] {
         padding: 10px;
         width: 100%;
         border: 1px solid rgba(1, 58, 102, 0.15);
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         background: white;
         transition: 0.2s all; }
         .employee__page__assignments #employee__assignments .employee__page__assignment .actions {
@@ -1670,6 +1669,8 @@ div[title="Superscript"] {
       top: 0px;
       transition: 0.2s all;
       z-index: 9; }
+      .employee__page__assignments__suggestions .no__data {
+        margin-top: 60px; }
       .employee__page__assignments__suggestions__close {
         position: absolute;
         border: 0px;
@@ -1774,12 +1775,8 @@ div[title="Superscript"] {
       color: #013a66; }
   .employee__page__menu {
     width: 100%;
-    transform: translate(-100%);
     transition: 0.2s all;
     height: 55px;
-    top: 0px;
-    position: fixed;
-    left: 0px;
     background: white;
     box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
     align-items: center;
@@ -1828,9 +1825,6 @@ div[title="Superscript"] {
         color: #0091ff;
         font-size: 30px; }
 
-#employee__page__menu--active {
-  transform: translate(50px); }
-
 #employee__page__assignment__hidden {
   opacity: 0.5; }
 
@@ -1843,6 +1837,11 @@ div[title="Superscript"] {
   height: 100%;
   opacity: 0;
   transition: 0.1s all; }
+  .employee__assignment__comments__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 0px; }
   .employee__assignment__comments header {
     margin-bottom: 10px;
     color: #013a66; }
@@ -1868,9 +1867,10 @@ div[title="Superscript"] {
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
     top: 50px;
     padding: 15px;
-    transform: translate(-50%) scale(0.3);
+    transform: translate(-50%);
     transform-origin: center;
-    transition: 0.2s all; }
+    transition: 0.2s all;
+    opacity: 0; }
   .employee__assignment__comments .rdw-editor-main {
     height: 300px;
     border: 1px solid rgba(1, 58, 102, 0.2) !important;
@@ -1881,7 +1881,8 @@ div[title="Superscript"] {
 #employee__assignment__comments--active {
   opacity: 1; }
   #employee__assignment__comments--active form {
-    transform: translate(-50%) scale(1); }
+    transform: translate(-50%);
+    opacity: 1; }
 
 .employee__assignment__page {
   color: #013a66;
@@ -1889,6 +1890,7 @@ div[title="Superscript"] {
   overflow: hidden;
   height: calc(100vh - 40px);
   padding-top: 20px !important;
+  transition: 0.2s all;
   padding-bottom: 100px;
   position: relative; }
   .employee__assignment__page header {
@@ -1957,9 +1959,9 @@ div[title="Superscript"] {
 .suggestions__btn {
   width: fit-content;
   margin-bottom: 10px;
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px; }
+  height: 35px;
+  padding-left: 20px;
+  padding-right: 20px; }
 
 .rtl__body #employee__page__menu--active {
   transform: translate(-50px); }
@@ -2065,7 +2067,7 @@ div[title="Superscript"] {
 
 @media only screen and (max-width: 550px) {
   .employee__page__assignments #employee__assignments {
-    max-height: calc(100vh - 240px); }
+    max-height: calc(100vh - 250px); }
   #employee__assignments__titles {
     display: none; }
   #employee__page__assignments__actions li svg {
@@ -2089,13 +2091,11 @@ div[title="Superscript"] {
       transform: translate(0px) !important;
       top: 10px !important; }
   .employee__page .page__flex {
-    padding-top: 30px; }
+    padding-top: 20px; }
   .employee__page__assignments__header {
     margin-bottom: 10px; }
   #employee__page__assignments__actions {
     margin-bottom: 10px; }
-  .employee__page__assignments {
-    height: calc(100% - 200px); }
   .employee__page__assignments__suggestions {
     z-index: 999999; }
   .employee__page__assignments__suggestions__content {
@@ -2134,7 +2134,8 @@ div[title="Superscript"] {
     justify-content: center; } }
 
 .assignments {
-  padding-top: 30px;
+  overflow: hidden;
+  margin-top: 20px;
   color: #013a66; }
   .assignments__handle {
     position: fixed;
@@ -2220,7 +2221,7 @@ div[title="Superscript"] {
   .assignments__list::-webkit-scrollbar {
     display: none; }
   .assignments__list {
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 110px);
     overflow-y: auto;
     flex-wrap: wrap;
     margin-top: 20px;
@@ -2297,8 +2298,8 @@ div[title="Superscript"] {
     .assignments__handle__form .files__upload {
       margin-bottom: 0px; }
   .assignments__list {
-    max-height: calc(100vh - 160px);
-    padding-bottom: 40px; } }
+    max-height: calc(100vh - 150px);
+    padding-bottom: 70px; } }
 
 @media only screen and (max-width: 600px) {
   .employee__page__menu__name {

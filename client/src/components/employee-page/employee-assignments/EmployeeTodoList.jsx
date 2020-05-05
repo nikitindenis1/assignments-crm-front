@@ -10,7 +10,7 @@ import { filterEmployeeAssignments } from "../../../functions/employe_assignment
 import NoData from "../../../parts/NoData";
 import LibraryAddOutlinedIcon from '@material-ui/icons/LibraryAddOutlined';
 import BtnWithTooltip from "../../../parts/BtnWithTooltip";
-import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+
 
 const getAssignmentsAmount = (arr, value) => {
   if (arr && arr.length > 0) {

@@ -1,6 +1,6 @@
 .assignments {
-  
-    padding-top: 30px;
+    overflow: hidden;
+    margin-top: 20px;
     color: #013a66;
     &__handle {
         position: fixed;
@@ -116,7 +116,7 @@
 
     &__list {
 
-        max-height: calc(100vh - 120px);
+        max-height: calc(100vh - 110px);
         overflow-y: auto;
         flex-wrap: wrap;
         margin-top: 20px;
@@ -228,8 +228,8 @@
         }
     }
     .assignments__list{
-        max-height: calc(100vh - 160px);
-        padding-bottom: 40px;
+        max-height: calc(100vh - 150px);
+        padding-bottom: 70px;
     }
 }
 @media only screen and (max-width: 600px) {

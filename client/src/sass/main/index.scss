@@ -472,10 +472,9 @@ input:focus::placeholder {
 
 @media only screen and (max-width: 1200px) {
 	.page__flex {
-		left: 50%;
-		width: calc(100% - 30px);
-		transform: translate(-50%);
-		position: relative;
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
 		margin: 0px;
 	}
 }

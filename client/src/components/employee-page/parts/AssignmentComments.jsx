@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { convertFromRaw, convertToRaw, EditorState } from "draft-js";
-
+import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
+import SubmitButtons from "../../../parts/SubmitButtons";
 const saveContent = (content) => {
   return JSON.stringify(convertToRaw(content.getCurrentContent()));
 };
@@ -52,6 +53,9 @@ class AssignmentComments extends Component {
   save = async (comments) => {
     const { assignment } = this.props;
     const updated = { ...assignment };
+    this.setState({
+      loading:true
+    })
     const rawDraftContentState = await saveContent(comments);
     updated["comments"] = rawDraftContentState;
     await this.props.updateAssignment(updated);
@@ -59,8 +63,8 @@ class AssignmentComments extends Component {
   };
 
   render() {
-    const { comments, loaded } = this.state;
-    const { assignment , system_text} = this.props;
+    const { comments, loaded, loading } = this.state;
+    const { assignment, system_text } = this.props;
     return (
       <div
         id={loaded ? "employee__assignment__comments--active" : ""}
@@ -68,8 +72,13 @@ class AssignmentComments extends Component {
       >
         <section className="overlay"></section>
         <form className="flex__column">
+          <button
+          type ='button'
+          onClick = {() => this.close()}
+          className='employee__assignment__comments__close'
+          ><CloseOutlinedIcon /></button>
           <header>
-    <h2>{system_text.ASSIGNMENT}</h2>
+            <h2>{system_text.ASSIGNMENT}</h2>
             <h3>{`${assignment.title}`}</h3>
           </header>
           <div className="employee__assignment__comments__editor">
@@ -82,28 +91,14 @@ class AssignmentComments extends Component {
               placeholder={system_text.COMMENT}
             />
           </div>
-          <aside className="employee__assignment__comments__btns flex__start">
-            <button
-              type="button"
-              style={{
-                width: "120px",
-              }}
-              onClick={() => this.save(comments)}
-              className="save__btn"
-            >
-              {system_text.SAVE}
-            </button>
-            <button
-              onClick={() => this.close()}
-              type="button"
-              style={{
-                width: "120px",
-              }}
-              className="cancel__btn"
-            >
-            {system_text.CANCEL}
-            </button>
-          </aside>
+          <SubmitButtons
+          submit = {() => comments ? this.save(comments) : '' }
+          loading ={loading}
+          close_text =  {system_text.CANCEL}
+          close = {this.close}
+          submit_text = {system_text.SAVE}
+          button_type = {true}
+          />
         </form>
       </div>
     );

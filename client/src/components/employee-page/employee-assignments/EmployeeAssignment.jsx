@@ -10,6 +10,9 @@ import {
   EMPLOYEE_ASSIGNMENT_ROUTE,
   EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE,
 } from "../../../tools/routes";
+import "moment/locale/he";
+
+
 
 class EmployeeAssignment extends Component {
   constructor() {
@@ -56,6 +59,7 @@ class EmployeeAssignment extends Component {
     console.log(m);
     const { permissions, user } = this.props.user;
     const { hide } = this.state;
+    const {language} = this.props.global;
     let options = [
       {
         text: "VIEW",
@@ -105,7 +109,9 @@ class EmployeeAssignment extends Component {
             display:'none'
           }}
           >Deadline</h4>
-          <h3>{m.deadline ? moment(m.deadline).format("DD/MM/YY") : "-"}</h3>
+          <h3>{m.deadline ? moment(m.deadline)
+                    .locale(language.substring(0, 2))
+                    .format("ddd, LL") : "-"}</h3>
         </div>
         <ElementActions width="150px" options={options} />
       </li>
@@ -113,8 +119,8 @@ class EmployeeAssignment extends Component {
   }
 }
 
-function mapStateToProps({ user }) {
-  return { user };
+function mapStateToProps({ user,global }) {
+  return { user,global };
 }
 
 export default withRouter(

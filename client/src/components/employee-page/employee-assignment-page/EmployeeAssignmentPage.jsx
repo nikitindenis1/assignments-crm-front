@@ -21,18 +21,25 @@ import { connect } from "react-redux";
 import * as actions from "../../../actions/actions";
 import "moment/locale/he";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import AssignmentLoader from "../../assignments/parts/AssignmentLoader";
 
 
 class EmployeeAssignmentPage extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+    };
   }
 
   async componentWillMount() {
     const id = this.props.match.params.assignment_id;
     const employee_id = this.props.match.params.id;
-    console.log(employee_id);
+
+   setTimeout(() => {
+      this.setState({
+        page_loaded:true
+      })
+   }, 20);
     const api = `employee_assignment/get-by-id?_id=${id}`;
     const res = await apiGetRequest(api);
     if (res.ok) {
@@ -65,7 +72,7 @@ class EmployeeAssignmentPage extends Component {
     const { system_text, language } = this.props.global;
     const { assignment } = this.props;
     const { permissions, user } = this.props.user;
-
+    const {page_loaded} = this.state
     let options = [
       {
         text: "EDIT",
@@ -102,8 +109,12 @@ class EmployeeAssignmentPage extends Component {
         disabled: !hasPermission(user, permissions, DELETE_ASSIGNMENTS),
       },
     ];
-    return assignment ? (
-      <div className="employee__assignment__page page__flex">
+    return  (
+      <div 
+      style ={{
+        opacity:page_loaded ? 1  :0
+      }}
+      className="employee__assignment__page page__flex">
         <ElementActions width="150px" options={options} />
         <header>
           <aside onClick={() => this.backToList()} className="flex__start">
@@ -112,7 +123,7 @@ class EmployeeAssignmentPage extends Component {
           </aside>
         </header>
 
-        <section className="employee__assignment__page__content">
+       {assignment ? <section className="employee__assignment__page__content">
           <div className="employee__assignment__page__content__section">
             <aside className="flex__start">
               <p>{system_text.STATUS}:</p>
@@ -185,11 +196,9 @@ class EmployeeAssignmentPage extends Component {
             <h3>{system_text.LAST_UPDATED}</h3>
             <h4>{moment(assignment.updated_at).format("DD/MM/YY HH:mm")}</h4>
           </div>
-        </section>
+        </section> : <AssignmentLoader arr={[...Array(3).keys()]} />}
       </div>
-    ) : (
-      ""
-    );
+    ) 
   }
 }
 

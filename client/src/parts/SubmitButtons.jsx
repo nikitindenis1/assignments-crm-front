@@ -2,7 +2,7 @@ import React from "react";
 import SmallLoader from "./SmallLoader";
 
 const SubmitButtons = (props) => {
-    const {loading, close_text, close, submit, submit_text} = props
+    const {loading, close_text, close, submit, submit_text, button_type} = props
   return (
     <div className="submit__buttons__box flex__start">
       {!loading ? (
@@ -13,12 +13,13 @@ const SubmitButtons = (props) => {
             background: "#0091ff",
           }}
           onClick = {() => submit ? submit()  :''}
-          type="submit"
+          type={button_type ? 'button'  :"submit"}
         >
          {submit_text}
         </button>
       ) : (
         <button 
+        type='button'
         style ={{
             background:'transparent',
             border:'none',

@@ -53,26 +53,20 @@
 }
 
 .employee__page {
-    padding-top: 40px;
     width: 100%;
-  
-    overflow: hidden;
     position: relative;
-
-
     &__assignments__list::-webkit-scrollbar {
         display: none;
 
     }
 
     .page__flex {
-        padding-top: 40px;
+        padding-top: 20px;
 
     }
 
     &__assignments {
         transition: 0.2s all;
-
         &__close {
             position: absolute;
             background: transparent;
@@ -120,9 +114,9 @@
         #employee__assignments {
             width: 100%;
             overflow-y: auto;
-            max-height: calc(100vh - 200px);
+            max-height: calc(100vh - 260px);
             margin-top: 10px;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
             flex-wrap: wrap;
 
             .employee__page__assignment {
@@ -131,7 +125,7 @@
                 padding: 10px;
                 width: 100%;
                 border: 1px solid rgba(1, 58, 102, 0.15);
-                margin-bottom: 10px;
+                margin-bottom: 5px;
                 background: white;
                 transition: 0.2s all;
 
@@ -174,7 +168,9 @@
             transition: 0.2s all;
 
             z-index: 9;
-
+            .no__data{
+                margin-top: 60px;
+            }
             &__close {
                 position: absolute;
                 border: 0px;
@@ -325,12 +321,8 @@
 
     &__menu {
         width: 100%;
-        transform: translate(-100%);
         transition: 0.2s all;
         height: 55px;
-        top: 0px;
-        position: fixed;
-        left: 0px;
         // border-bottom: 1px solid rgba(33, 51, 90, 0.3);
         background: white;
         box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
@@ -402,9 +394,6 @@
     }
 }
 
-#employee__page__menu--active {
-    transform: translate(50px);
-}
 
 #employee__page__assignment__hidden {
 
@@ -420,7 +409,12 @@
     height: 100%;
     opacity: 0;
     transition: 0.1s all;
-
+    &__close{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border: 0px;
+    }
     header {
         margin-bottom: 10px;
         color: #013a66;
@@ -458,10 +452,10 @@
         box-shadow:0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
         top: 50px;
         padding: 15px;
-        transform: translate(-50%) scale(0.3);
+        transform: translate(-50%);
         transform-origin: center;
         transition: 0.2s all;
-
+        opacity: 0;
     }
 
     .rdw-editor-main {
@@ -478,7 +472,8 @@
     opacity: 1;
 
     form {
-        transform: translate(-50%) scale(1);
+        transform: translate(-50%);
+        opacity: 1;
     }
 }
 
@@ -490,7 +485,7 @@
     overflow: hidden;
     height: calc(100vh - 40px);
     padding-top: 20px !important;
-
+    transition: 0.2s all;
 
 
     padding-bottom: 100px;
@@ -604,9 +599,9 @@
 .suggestions__btn {
     width: fit-content;
     margin-bottom: 10px;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
+    height: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
 
 }
 
@@ -666,6 +661,7 @@
     }
 
     .employee__page__assignments__suggestions__content {
+       
         ul {
             li {
                 padding-right: 40px;
@@ -771,7 +767,7 @@
 @media only screen and (max-width: 550px) {
   
     .employee__page__assignments #employee__assignments{
-    max-height: calc(100vh - 240px);
+    max-height: calc(100vh - 250px);
     }
     #employee__assignments__titles {
         display: none;
@@ -810,7 +806,7 @@
     }
 
     .employee__page .page__flex {
-        padding-top: 30px;
+        padding-top: 20px;
     }
 
     .employee__page__assignments__header {
@@ -821,9 +817,7 @@
         margin-bottom: 10px;
     }
 
-    .employee__page__assignments {
-        height: calc(100% - 200px);
-    }
+
 
     .employee__page__assignments__suggestions {
         z-index: 999999;

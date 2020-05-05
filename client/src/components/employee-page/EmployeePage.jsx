@@ -27,6 +27,11 @@ class EmployeePage extends Component {
 
   async componentDidMount() {
     const id = this.props.match.params.id;
+   setTimeout(() => {
+    this.setState({
+      page_loaded: true
+    })
+   }, 20);
     await this.getEmployee(id);
   }
   getEmployee = async (id) => {
@@ -36,7 +41,6 @@ class EmployeePage extends Component {
       setTimeout(() => {
         this.setState({
           employee: res.result,
-          page_loaded: true,
         });
       }, 100);
     }
@@ -84,7 +88,7 @@ class EmployeePage extends Component {
     } = this.state;
     const { user } = this.props.user;
     const { system_text } = this.props.global;
-    return page_loaded && employee ? (
+    return page_loaded ?(
       <div
         className="employee__page"
         id={!user.is_manager ? "employee__page--employee" : ""}
