@@ -178,7 +178,7 @@
                 margin-bottom: 0px;
                 margin-right: 20px;
                 position: relative;
-
+                overflow: hidden;
             }
 
             &__name {
@@ -366,9 +366,12 @@
         padding-top: 20px;
     }
     .employees__handle__form{
-        padding-bottom: 70px;
+       
         overflow-y: auto;
         height: 100vh;
+        .submit__buttons__box{
+            margin-bottom: 60px;
+        }
     }
 }
 

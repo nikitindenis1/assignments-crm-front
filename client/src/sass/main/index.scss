@@ -118,7 +118,9 @@ blockquote,
 q {
 	quotes: none;
 }
-
+textarea, input{
+	-webkit-appearance: none;
+	}
 blockquote:before,
 blockquote:after,
 q:before,

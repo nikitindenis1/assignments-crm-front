@@ -133,6 +133,9 @@ blockquote,
 q {
   quotes: none; }
 
+textarea, input {
+  -webkit-appearance: none; }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -570,7 +573,8 @@ input:focus::placeholder {
         height: 30px;
         margin-bottom: 0px;
         margin-right: 20px;
-        position: relative; }
+        position: relative;
+        overflow: hidden; }
       .employees__list__employee__name {
         width: calc(100% - 490px); }
       .employees__list__employee h3 {
@@ -694,9 +698,10 @@ input:focus::placeholder {
   .employees {
     padding-top: 20px; }
   .employees__handle__form {
-    padding-bottom: 70px;
     overflow-y: auto;
-    height: 100vh; } }
+    height: 100vh; }
+    .employees__handle__form .submit__buttons__box {
+      margin-bottom: 60px; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
