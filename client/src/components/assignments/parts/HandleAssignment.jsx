@@ -84,7 +84,11 @@ class HandleAssignment extends Component {
   setAssignment = (assignment) => {
     this.setState({
       assignment_updated:true,
-      assignment
+      assignment:{
+        title:assignment.title,
+        text:assignment.text,
+        files:assignment.files
+      }
     })
     setTimeout(() => {
       this.setState({
@@ -93,7 +97,7 @@ class HandleAssignment extends Component {
     }, 50);
   }
   scrolltop = () => {
-    console.log('laaaaaaaa')
+  
     this.componentRef.current.scrollTop = 0;
 
 

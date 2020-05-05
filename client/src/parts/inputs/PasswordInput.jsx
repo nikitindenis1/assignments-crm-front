@@ -101,6 +101,7 @@ class PasswordInput extends Component {
           onChange={(e) => this.handleChange(e.target.value)}
           type="password"
           value={value ? value : !value && is_edit ? "********" : ""}
+          autocomplete="false"
         />
 
         <CopyToClipboard text={value} onCopy={() => this.handleCopy()}>

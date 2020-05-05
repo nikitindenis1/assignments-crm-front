@@ -172,7 +172,8 @@ table {
 .page__flex {
   width: 1200px;
   margin: auto;
-  height: auto; }
+  height: auto;
+  overflow: hidden; }
 
 @font-face {
   font-family: 'regular-font';
@@ -452,7 +453,9 @@ input:focus::placeholder {
 @media only screen and (max-width: 700px) {
   .dashboard {
     padding-left: 0px;
-    padding-top: 50px; } }
+    padding-top: 50px; }
+  .rtl__body .dashboard {
+    padding-right: 0px; } }
 
 .employees {
   width: 100%;
@@ -669,8 +672,8 @@ input:focus::placeholder {
     align-items: flex-start;
     height: auto;
     padding: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
     flex-wrap: wrap; }
     .employees__list__employee__name {
       width: 100%;
@@ -684,6 +687,10 @@ input:focus::placeholder {
     height: 50px; }
     .employees__list__employee .employees__list__employee__avatar svg {
       font-size: 27px; }
+  .rtl__body .employees__list__employee__avatar {
+    margin-left: 0px !important; }
+  .rtl__body #employee__mobile__stats span:nth-child(2) {
+    transform: translate(5px); }
   .employees__list__employee .actions {
     transform: none;
     top: 10px; }
@@ -1413,7 +1420,9 @@ div[title="Superscript"] {
 @media only screen and (max-width: 400px) {
   .files__upload__list li {
     width: 100%;
-    margin-right: 0px; } }
+    margin-right: 0px; }
+  .selectbox {
+    width: 100%; } }
 
 .navbar {
   position: fixed;
@@ -1551,7 +1560,25 @@ div[title="Superscript"] {
       width: 35px;
       height: 35px; }
       .navbar__user__avatar svg {
-        font-size: 25px; } }
+        font-size: 25px; }
+  .rtl__body .navbar__list {
+    left: auto;
+    right: 0px;
+    transform: translate(100%); }
+    .rtl__body .navbar__list__mobile__placeholder {
+      right: 0px;
+      left: auto; }
+    .rtl__body .navbar__list__link {
+      padding-right: 10px;
+      padding-left: 0px; }
+  .rtl__body .smal__popup::after {
+    display: none; }
+  .mobile__hamburger {
+    margin-right: 15px;
+    margin-left: 0px; }
+  .navbar__logout__link {
+    margin-left: 15px !important;
+    margin-right: 0px !important; } }
 
 #employee__page__assignments__list--active {
   transform: translate(0px); }
@@ -1963,8 +1990,9 @@ div[title="Superscript"] {
   padding-left: 20px;
   padding-right: 20px; }
 
-.rtl__body #employee__page__menu--active {
-  transform: translate(-50px); }
+.rtl__body .employee__assignment__comments__close {
+  left: 10px;
+  right: auto; }
 
 .rtl__body .employee__page__menu {
   padding-right: 20px; }
@@ -2063,7 +2091,12 @@ div[title="Superscript"] {
     padding-right: 5px;
     margin: 0px; }
     #employee__page__assignments__actions li h3 {
-      font-size: 14px; } }
+      font-size: 14px; }
+  .rtl__body #employee__page__assignments__actions li {
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0px; } }
 
 @media only screen and (max-width: 550px) {
   .employee__page {
@@ -2422,7 +2455,8 @@ div[title="Superscript"] {
 
 .settings {
   padding-top: 30px;
-  color: #013a66; }
+  color: #013a66;
+  min-height: 100vh; }
   .settings h2 {
     font-size: 20px;
     text-decoration: underline; }
@@ -2507,6 +2541,10 @@ div[title="Superscript"] {
 
 .rtl__body .settings header svg {
   transform: rotate(180deg); }
+
+@media only screen and (max-width: 550px) {
+  .settings {
+    min-height: calc(100vh - 50px); } }
 
 @media only screen and (max-width: 550px) {
   .settings .employee__page__personal {

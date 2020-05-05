@@ -7,8 +7,8 @@ const SignupSuccess = (props) => {
         <div 
        id={active ? 'login__signup__success--active'  :''}
         className='login__signup__success flex__column'>
-                <h2>Congradulation!</h2>
-            <h3>Youre account created successfully!</h3>
+                <h2>Congratulation!</h2>
+            <h3>Your account has been created successfully</h3>
             <p>Redirecting you to the application...</p>
             <SmallLoader />
         </div>

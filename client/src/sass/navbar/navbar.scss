@@ -142,6 +142,7 @@
                 top: 0px;
             }
         }
+       
      
         .mobile__hamburger{
             display: block!important;
@@ -175,5 +176,31 @@
                 font-size: 25px;
             }
         }
+    }
+    .rtl__body{
+        .navbar__list{
+            left: auto;
+            right:0px;
+            transform: translate(100%);
+            &__mobile__placeholder{
+                right: 0px;
+                left: auto;
+            }
+            &__link{
+                padding-right: 10px;
+                padding-left: 0px;
+            }
+        }
+        .smal__popup::after{
+            display: none;
+        }
+    }
+    .mobile__hamburger{
+        margin-right: 15px;
+        margin-left: 0px;
+    }
+    .navbar__logout__link{
+        margin-left: 15px!important;
+        margin-right: 0px!important;
     }
 }
