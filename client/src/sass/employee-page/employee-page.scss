@@ -50,9 +50,11 @@
 
 .employee__page {
     position: relative;
+    
     .sticky__top{
         padding-top: 75px;
     }
+   
     &__assignments {
         transition: 0.2s all;
         &__close {
@@ -299,9 +301,9 @@
 
     &__menu {
         position: fixed;
-        width: calc(100vw - 50px);
+      width: calc(100vw - 50px);
         top: 0px;
-        left: 50px;
+        
         transition: 0.2s all;
         height: 55px;
         // border-bottom: 1px solid rgba(33, 51, 90, 0.3);
@@ -309,8 +311,6 @@
         box-shadow: rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
         align-items: center;
         z-index: 99;
-        padding-left: 10px;
-
         >.cancel__btn {
             width: calc(100% - 20px);
             margin-left: auto;
@@ -375,7 +375,11 @@
     }
 }
 
-
+#employee__page--employee{
+    .sticky__top{
+        padding-top: 30px;
+    }
+}
 #employee__page__assignment__hidden {
 
     opacity: 0.5;
@@ -733,6 +737,11 @@
 @media only screen and (max-width: 700px) {
     .employee__page .sticky__top{
         padding-top: 125px;
+    }
+    #employee__page--employee {
+        .sticky__top{
+            padding-top: 75px!important;
+        }
     }
     .employee__page__menu {
         top: 50px;

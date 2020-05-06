@@ -90,7 +90,7 @@ class EmployeePage extends Component {
     const { system_text } = this.props.global;
     return page_loaded ?(
       <div
-        className="employee__page  page__flex"
+        className="employee__page"
         id={!user.is_manager ? "employee__page--employee" : ""}
       >
         {handle_employee ? (
@@ -118,7 +118,8 @@ class EmployeePage extends Component {
           ""
         )}
 
-        <EmploeeAssignments
+     <div className='page__flex'>
+     <EmploeeAssignments
           hide_page = {profile} 
           employee={employee}
           updateEmployee={this.updateEmployee}
@@ -131,6 +132,7 @@ class EmployeePage extends Component {
           save={this.updateEmployee}
           changeSection = {this.changeSection}
         />  : ''}
+     </div>
       </div>
     ) : (
       ""

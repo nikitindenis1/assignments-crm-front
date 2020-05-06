@@ -84,7 +84,7 @@ class TextInput extends Component {
           onFocus={(e) => this.handleFocus()}
           placeholder={system_text[label]}
           value={value}
-          autocomplete="false"
+          autocomplete="new-email"
         />
         {error ? (
           <p className="text__input__error">{system_text[empty_text]}</p>

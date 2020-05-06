@@ -131,7 +131,10 @@ class EmployeeAssignmentPage extends Component {
               <h5>{system_text[assignment.status]}</h5>
             </aside>
             <h3>{system_text.TITLE}</h3>
-            <h4>{assignment.title}</h4>
+            <h4 style ={{
+              fontFamily:'medium-font',
+              fontSize:'20px'
+            }}>{assignment.title}</h4>
           </div>
           <aside className="employee__assignment__page__content__section">
             <h3>{system_text.CONTENT}</h3>

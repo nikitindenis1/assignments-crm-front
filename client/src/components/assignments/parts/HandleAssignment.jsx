@@ -147,6 +147,19 @@ class HandleAssignment extends Component {
           className='save__btn suggestions__btn'>{system_text.TEMPLATES}</button>
              
         : ''}
+        {
+          from_employee_page ?
+          <SingleDatepicker
+          scrolltop = {this.scrolltop}
+            sendDate={this.updateStateAssignment}
+            property_name="deadline"
+            date={assignment ? assignment.deadline : ""}
+            title={system_text.DEADLINE}
+            empty_error="Required field"
+            validate={validate}
+            
+          />  :''
+        }
           {assignment && loaded &&
             assignments_inputs_data.map((input) => {
               switch (input.type) {
@@ -204,17 +217,6 @@ class HandleAssignment extends Component {
               ) : (
                 ""
               )}
-
-              <SingleDatepicker
-              scrolltop = {this.scrolltop}
-                sendDate={this.updateStateAssignment}
-                property_name="deadline"
-                date={assignment ? assignment.deadline : ""}
-                title={system_text.DEADLINE}
-                empty_error="Required field"
-                validate={validate}
-                
-              />
             </div>
           ) : (
             ""

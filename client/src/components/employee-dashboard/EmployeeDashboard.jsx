@@ -30,7 +30,8 @@ class EmployeeDashboard extends Component {
     const api = `account-settings?id=${user.user}`;
     const res = await apiGetRequest(api);
     if (res.ok) {
-      this.props.updateUserReducer("permissions", res.result.permissions);
+      this.props.updateUserReducer('permissions', res.result.permissions)
+        this.props.setSystemLanguage(res.result.language)
       let navigations = employee_navigations;
       if (!hasPermission(user, res.result.permissions, EDIT_PROFILE)) {
         navigations = navigations.filter((m) => m.value !== "settings");
@@ -45,9 +46,10 @@ class EmployeeDashboard extends Component {
   }
   render() {
     const { user } = this.props.user;
+    const {language} = this.props.global
     const { navigations, page_loaded } = this.state;
 
-    return user && navigations && page_loaded? (
+    return user && navigations && page_loaded && language? (
       <div className="dashboard">
         <Router>
           <Navbar navigations={navigations} />
@@ -70,8 +72,8 @@ class EmployeeDashboard extends Component {
   }
 }
 
-function mapStateToProps({ user }) {
-  return { user };
+function mapStateToProps({ user, global }) {
+  return { user, global };
 }
 
 export default withRouter(connect(mapStateToProps, actions)(EmployeeDashboard));

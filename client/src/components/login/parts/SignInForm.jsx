@@ -4,7 +4,7 @@ import TextInput from "../../../parts/inputs/TextInput";
 import { apiPostRequest } from "../../../tools/api";
 import { connect } from "react-redux";
 import * as actions from "../../../actions/actions";
-import { DASHBOARD_ROUTE, EMPLOYEES_ROUTE, EMPLOYEE_DASHBOARD_ROUTE } from "../../../tools/routes";
+import { DASHBOARD_ROUTE, EMPLOYEES_ROUTE, EMPLOYEE_DASHBOARD_ROUTE, EMPLOYEE_DASHBOARD_PAGE_ROUTE } from "../../../tools/routes";
 import { setCookie, removeCookie } from "../../../tools/cookie";
 import { AUTH_TOKEN } from "../../../tools/keys";
 import { withRouter } from "react-router";
@@ -60,7 +60,7 @@ class SignInForm extends Component {
         return  this.props.updateGlobalReducer('error','Employee is inactive');
       }
      else return this.props.history.push(
-      EMPLOYEE_DASHBOARD_ROUTE.replace(":id", res.result._id)
+      EMPLOYEE_DASHBOARD_PAGE_ROUTE.replace(":id", res.result._id)
     )
     }
     if (!res.ok && res.result) {

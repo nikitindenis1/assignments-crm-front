@@ -72,10 +72,12 @@ class EmployeeTodoList extends Component {
         style={{
           opacity: page_loaded ? 1 : 0,
         }}
+       
         className="employee__page__assignments"
       >
        
-        <div className='sticky__top'>
+        <div
+        className='sticky__top'>
           <header className="employee__page__assignments__header flex__start">
             {hasPermission(user, permissions, CREATE_ASSIGNMENTS) ? (
             

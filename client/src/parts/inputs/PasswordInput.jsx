@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import generator from "generate-password";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import { connect } from "react-redux";
 import * as actions from "../../actions/actions";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import RotateLeftOutlinedIcon from "@material-ui/icons/RotateLeftOutlined";
 import BtnWithTooltip from "../../parts/BtnWithTooltip";
 import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
-
-
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
 class PasswordInput extends Component {
   constructor() {
     super();
@@ -83,27 +83,35 @@ class PasswordInput extends Component {
   };
   render() {
     const { input, value, is_edit } = this.props;
-    console.log(value)
     const { empty_text, label } = input;
-    const { active, error, generated, copied } = this.state;
+    const { active, error, generated, copied, show_password } = this.state;
     const { system_text } = this.props.global;
     return (
       <div
-        id="password__input"
         className={
           active || value
-            ? "text__input text__input--active flex__start"
-            : "text__input flex__start"
+            ? "password text__input--active flex__start"
+            : "password flex__start"
         }
       >
+      
+        <section className='password__input'>
         <input
           placeholder={system_text[label]}
           onChange={(e) => this.handleChange(e.target.value)}
-          type="password"
+          type={show_password ? 'text':"password"}
           value={value ? value : !value && is_edit ? "********" : ""}
-          autocomplete="false"
+          autocomplete="new-password"
+          onBlur={(e) => this.handleBlur()}
+          onFocus={(e) => this.handleFocus()}
         />
-
+          <button
+          type='button'
+          className='flex__center'
+        onClick = {() => this.setState({show_password:!show_password})}
+        >{show_password ? <VisibilityOffOutlinedIcon />  :<VisibilityOutlinedIcon />}</button>
+        </section>
+        <section  className='password__actions flex__between'>
         <CopyToClipboard text={value} onCopy={() => this.handleCopy()}>
           <aside
           style ={{
@@ -118,11 +126,12 @@ class PasswordInput extends Component {
           </aside>
         </CopyToClipboard>
         <BtnWithTooltip
-          svg={generated  ?<CheckCircleOutlineOutlinedIcon /> : <RotateLeftOutlinedIcon />}
+          svg={generated  ?<CheckCircleOutlineOutlinedIcon /> : <LockOutlinedIcon />}
           handleClick={this.generatePassword}
           value={true}
           tooltip={system_text.GENERATE}
         />
+        </section>
         {error ? (
           <p className="text__input__error">{system_text[empty_text]}</p>
         ) : (

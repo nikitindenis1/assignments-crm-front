@@ -11,6 +11,7 @@ import {
   SIGNUP_ROUTE,
   EMPLOYEE_DASHBOARD_ROUTE,
   EMPLOYEES_ROUTE,
+  EMPLOYEE_DASHBOARD_PAGE_ROUTE,
 } from "./tools/routes";
 import Dashboard from "./components/dashboard/Dashboard";
 import { connect } from "react-redux";
@@ -63,7 +64,7 @@ class App extends Component {
       if (user.is_manager) return this.props.history.push(EMPLOYEES_ROUTE);
       else
         return this.props.history.push(
-          EMPLOYEE_DASHBOARD_ROUTE
+          EMPLOYEE_DASHBOARD_PAGE_ROUTE.replace(':id', user._id)
         );
     }
   
