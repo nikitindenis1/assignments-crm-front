@@ -145,6 +145,18 @@
             margin-right: 0px;
         }
     }
+    .rtl__body{
+        .settings__select__list__element{
+
+          &:nth-child(1n){
+            margin-right: 0px;
+            margin-left: 10px;
+          } 
+          &:nth-child(2n){
+            margin-left: 0px;
+        }
+        }
+    }
     .settings__permissions{
         padding-left: 0px;
     }

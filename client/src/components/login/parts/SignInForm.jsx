@@ -9,7 +9,7 @@ import { setCookie, removeCookie } from "../../../tools/cookie";
 import { AUTH_TOKEN } from "../../../tools/keys";
 import { withRouter } from "react-router";
 import SumbitBtn from "../../../parts/SumbitBtn";
-
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 class SignInForm extends Component {
   constructor() {
     super();
@@ -79,7 +79,16 @@ class SignInForm extends Component {
         onSubmit={(e) => this.submitForm(e)}
         className="login__form signin__form flex__column"
       >
-        <h2>Login</h2>
+        {/* <h2>Login</h2> */}
+        <AccountCircleRoundedIcon 
+        style ={{
+          fontSize:'70px',
+          marginLeft:'auto',
+          marginRight:'auto',
+          marginBottom:'20px',
+          color:'rgba(0, 145, 255, 1)'
+        }}
+        />
         <section className="login__form__inputs">
           {signin_inputs.map((input, i) => {
             return (

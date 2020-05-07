@@ -57,7 +57,9 @@ class Employee extends Component {
             : "employees__list__employee flex__column"
         }
       >
-        <div className="employees__list__employee__name flex__start">
+        <div 
+        onClick = {() => this.goToEmployeePage()}
+        className="employees__list__employee__name flex__start">
           <figure
             style={{
               border: avatar ? "1px solid rgba(1, 58, 102, 0.3)" : "",

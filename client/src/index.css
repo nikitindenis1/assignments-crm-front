@@ -611,7 +611,8 @@ input:focus::placeholder {
         overflow: hidden;
         border-radius: 50%; }
       .employees__list__employee__name {
-        width: calc(100% - 490px); }
+        width: calc(100% - 490px);
+        cursor: pointer; }
       .employees__list__employee h3 {
         font-size: 16px; }
       .employees__list__employee__stats {
@@ -1987,10 +1988,6 @@ div[title="Superscript"] {
   padding-left: 20px;
   padding-right: 20px; }
 
-.rtl__body .employee__page__personal {
-  padding-right: 20px;
-  padding-left: 0px; }
-
 .rtl__body .employee__page__personal__close {
   right: 5px;
   left: auto; }
@@ -2087,6 +2084,8 @@ div[title="Superscript"] {
 @media only screen and (max-width: 700px) {
   .employee__page .sticky__top {
     padding-top: 125px; }
+  .employee__page__personal {
+    top: 120px; }
   #employee__page--employee .sticky__top {
     padding-top: 75px !important; }
   .employee__page__menu {
@@ -2094,7 +2093,8 @@ div[title="Superscript"] {
     width: 100%;
     transform: none;
     left: 0px;
-    padding-left: 0px; }
+    padding-left: 0px;
+    padding-right: 0px !important; }
     .employee__page__menu figure {
       margin-left: 15px; }
   #employee__page__assignments__actions {
@@ -2110,7 +2110,9 @@ div[title="Superscript"] {
     padding: 0px;
     padding-left: 5px;
     padding-right: 5px;
-    margin: 0px; } }
+    margin: 0px; }
+  .rtl__body .employee__page__menu figure {
+    margin-right: 15px; } }
 
 @media only screen and (max-width: 550px) {
   #employee__assignments__titles {
@@ -2158,11 +2160,11 @@ div[title="Superscript"] {
       display: none; }
     .employee__page__personal__details li {
       width: 100%;
-      margin-right: 0px; }
+      margin-left: 0px !important;
+      margin-right: 0px !important; }
   .employee__page__personal {
-    height: calc(100% - 100px);
-    overflow-y: auto;
-    top: 70px; }
+    height: calc(100vh - 170px);
+    overflow-y: auto; }
   .employee__page__personal .employee__img {
     width: 80px;
     height: 80px; }
@@ -2551,5 +2553,10 @@ div[title="Superscript"] {
     width: calc(50% - 5px); }
     .settings__select__list__element:nth-child(2n) {
       margin-right: 0px; }
+  .rtl__body .settings__select__list__element:nth-child(1n) {
+    margin-right: 0px;
+    margin-left: 10px; }
+  .rtl__body .settings__select__list__element:nth-child(2n) {
+    margin-left: 0px; }
   .settings__permissions {
     padding-left: 0px; } }
