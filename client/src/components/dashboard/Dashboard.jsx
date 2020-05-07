@@ -30,15 +30,23 @@ class Dashboard extends Component {
     if(res.ok){
     
         this.props.updateUserReducer('permissions', res.result.permissions)
+        this.props.updateUserReducer('system_logo', res.result.avatar)
         this.props.setSystemLanguage(res.result.language)
     }
   }
   
     render () {
-      const {user} = this.props.user
+      const {user, system_logo} = this.props.user
         const {language} = this.props.global
         return (
           user && user.is_manager && language?   <div className='dashboard'>
+                  {
+                    system_logo ? 
+                    <div className='dashboard__logo page__flex'>
+                      <img src={system_logo} />
+                    </div>
+                    : ''
+                  }
                     <Router>
                         <Navbar 
                         navigations  ={manager_navigations}

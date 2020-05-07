@@ -9,6 +9,7 @@ export const text = {
     settings: {
       direction: "ltr",
     },
+
     LANGUAGE_LOADING:'Language is loading...',
     pending:'Pending',
     in_progress:'In progress',
@@ -59,6 +60,7 @@ export const text = {
     CREATE: "Create",
     DELETE: "Delete",
     REMOVE_TEXT: "Are you sure, you want to remove:",
+    REMOVE_ASSIGNMENT_QUESTION:'Delete the assignment',
     NO_EMPLOYEES: "No Employees",
     ASSIGNMENTS: "Assignments",
     ASSIGNMENT: "Assignment",
@@ -153,7 +155,8 @@ export const text = {
     EDIT: "ערוך",
     CREATE: "צור",
     DELETE: "מחק",
-    REMOVE_TEXT: "האם אתה בטוח שברצונך למחוק:",
+    REMOVE_TEXT: "האם למחוק את",
+    REMOVE_ASSIGNMENT_QUESTION:'האם למחוק את',
     NO_EMPLOYEES: "אין עובדים",
     ASSIGNMENTS: "משימות",
     ASSIGNMENT: "משימה",

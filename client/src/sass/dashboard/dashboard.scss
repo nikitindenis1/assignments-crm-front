@@ -3,6 +3,19 @@
     // width: var(--grid_width);
   position: relative;
     margin: auto;
+    &__logo{
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 999;
+        img{
+            width: auto;
+            height:40px;
+            position: absolute;
+            right: 0px;
+        }
+    }
     &__categories{
         flex-wrap: wrap;
         padding-top: 50px;
@@ -30,11 +43,20 @@
     .dashboard{
         padding-left: 0px;
         padding-right: 50px;
+        &__logo{
+            img{
+                right: auto;
+                left: 0px;
+            }
+        }
     }
 }
 @media only screen and (max-width:700px){
     .dashboard{
         padding-left: 0px;
+        &__logo{
+            display: none;
+        }
     }
     .rtl__body .dashboard{
         padding-right: 0px;

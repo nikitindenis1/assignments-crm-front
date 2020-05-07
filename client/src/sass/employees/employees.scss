@@ -353,13 +353,14 @@ z-index: 999999999;
     .employees__handle__form__info{
         flex-direction: column;
         flex-wrap: nowrap;
+        margin-bottom: 30px;
     }
    
     .employees__handle__form{
-        overflow-y: auto;
+        overflow: auto;
        height: 100%;
        position: absolute;
-       padding-bottom: 80px;
+       padding-bottom: 180px;
         
     }
 }

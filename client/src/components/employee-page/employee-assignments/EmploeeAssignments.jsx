@@ -145,13 +145,13 @@ updateState = (name, value) => {
         transition:'0.2s all'
       }}>
       <PopupWithFunction
-          text="Are you sure, you want to remove assignment:"
+          text={system_text.REMOVE_ASSIGNMENT_QUESTION}
           name={`${assignment_to_remove ? assignment_to_remove.title : ""}?`}
           active={assignment_to_remove}
           submit={this.remove}
           close={this.close}
-          submit_text="YES"
-          close_text="NO"
+          submit_text={system_text.YES}
+          close_text={system_text.NO}
         />
         {assignment_comments ? (
           <AssignmentComments

@@ -3,13 +3,12 @@ import assignments_inputs_data from "./assignments_inputs_data";
 import TextInput from "../../../parts/inputs/TextInput";
 import { connect } from "react-redux";
 import * as actions from "../../../actions/actions";
-import SingleDatepicker from "../../../parts/SingleDatepicker";
-import SmallLoader from "../../../parts/SmallLoader";
 import DraftInput from "../../../parts/inputs/DraftInput";
 import CloseIcon from "@material-ui/icons/Close";
 import FilesUpload from "../../../parts/FilesUpload";
 import SubmitButtons from "../../../parts/SubmitButtons";
 import EmployeeAssignmentsPopup from "../../employee-page/employee-assignments/EmployeeAssignmentsPopup";
+import MaterialDatepicker from "../../../parts/MaterialDatepicker";
 
 class HandleAssignment extends Component {
   constructor() {
@@ -149,8 +148,7 @@ class HandleAssignment extends Component {
         : ''}
         {
           from_employee_page ?
-          <SingleDatepicker
-          scrolltop = {this.scrolltop}
+          <MaterialDatepicker
             sendDate={this.updateStateAssignment}
             property_name="deadline"
             date={assignment ? assignment.deadline : ""}

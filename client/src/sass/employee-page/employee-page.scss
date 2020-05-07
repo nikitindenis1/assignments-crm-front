@@ -156,7 +156,7 @@
                 border: 0px;
                 right: 10px;
                 top: 10px;
-
+                background: transparent;
                 svg {
                     font-size: 28px;
                 }
@@ -583,7 +583,7 @@
 .suggestions__btn {
     width: fit-content;
     margin-bottom: 10px;
-    height: 35px;
+    min-height: 35px;
     padding-left: 20px;
     padding-right: 20px;
 

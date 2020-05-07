@@ -31,6 +31,7 @@ class EmployeeDashboard extends Component {
     const res = await apiGetRequest(api);
     if (res.ok) {
       this.props.updateUserReducer('permissions', res.result.permissions)
+      this.props.updateUserReducer('system_logo', res.result.avatar)
         this.props.setSystemLanguage(res.result.language)
       let navigations = employee_navigations;
       if (!hasPermission(user, res.result.permissions, EDIT_PROFILE)) {
