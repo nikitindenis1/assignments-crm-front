@@ -350,19 +350,25 @@ z-index: 999999999;
     .employees__list__employee .employees__list__employee__info span {
         margin-right: 0px;
     }
-    .employees__handle__form__info{
-        flex-direction: column;
-        flex-wrap: nowrap;
-        margin-bottom: 30px;
-    }
-   
-    .employees__handle__form{
+    .employees__handle{
+        min-height: 100vh;
+      
+        height: auto;
         overflow: auto;
-       height: 100%;
-       position: absolute;
-       padding-bottom: 180px;
-        
+            &__form{
+                padding-bottom: 100px;
+                height: 100vh;
+                overflow: auto;
+                position: static;
+                   
+                &__info{
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    margin-bottom: 30px;
+                }       
+            }
     }
+ 
 }
 
 @media only screen and (max-width: 550px){

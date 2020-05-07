@@ -727,15 +727,19 @@ input:focus::placeholder {
     justify-content: space-between; }
   .employees__list__employee .employees__list__employee__info span {
     margin-right: 0px; }
-  .employees__handle__form__info {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin-bottom: 30px; }
-  .employees__handle__form {
-    overflow: auto;
-    height: 100%;
-    position: absolute;
-    padding-bottom: 180px; } }
+  .employees__handle {
+    min-height: 100vh;
+    height: auto;
+    overflow: auto; }
+    .employees__handle__form {
+      padding-bottom: 100px;
+      height: 100vh;
+      overflow: auto;
+      position: static; }
+      .employees__handle__form__info {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-bottom: 30px; } }
 
 @media only screen and (max-width: 550px) {
   .employees__handle__form {
