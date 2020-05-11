@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   handleNoAccessRoutes = (url) => {
-    if (url.indexOf("signin") === -1 && url.indexOf("signup") === -1) {
+    if (url.indexOf("login") === -1 && url.indexOf("signup") === -1) {
       this.props.history.push(LOGIN_ROUTE);
     }
   };

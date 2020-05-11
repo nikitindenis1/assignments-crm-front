@@ -17,7 +17,13 @@ class SignInForm extends Component {
       form_data: {},
     };
   }
-
+  componentDidMount(){
+    const url = window.location.pathname.split('/')
+    let demo = url[url.length - 1]
+    this.setState({
+      demo:demo === 'demo'
+    })
+  }
   updateForm = (name, value) => {
     const form_data = { ...this.state.form_data };
     form_data[name] = value;
@@ -72,7 +78,8 @@ class SignInForm extends Component {
   };
 
   render() {
-    const { form_data, validate, loading } = this.state;
+    const { form_data, validate, loading, demo } = this.state;
+  
     return (
       <div className='login flex__center'>
        <form
@@ -101,6 +108,22 @@ class SignInForm extends Component {
               />
             );
           })}
+
+          {
+            demo ? 
+            <div className='login__demo__account'>
+              <h3>Demo account</h3>
+              <span className='flex__start'>
+                <h5>Username:</h5>
+                <h4>demo@demo.com</h4>
+              </span>
+              <span className='flex__start'>
+              <h5>Password:</h5>
+                <h4>demo123</h4>
+              </span>
+            </div>
+            :''
+          }
         </section>
        <SumbitBtn
        text = 'Submit'

@@ -2431,6 +2431,17 @@ div[title="Superscript"] {
     .login .submit__btn button:hover {
       background: #0091ff; }
 
+.login__demo__account h3 {
+  font-size: 20px;
+  text-decoration: underline; }
+
+.login__demo__account h4 {
+  margin-left: 5px;
+  font-size: 15px; }
+
+.login__demo__account h5 {
+  font-size: 15px; }
+
 #login__signup__success--active {
   transform: translate(-50%, -100%);
   opacity: 1; }

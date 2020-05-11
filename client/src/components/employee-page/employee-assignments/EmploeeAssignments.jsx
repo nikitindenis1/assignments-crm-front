@@ -88,6 +88,9 @@ class EmploeeAssignments extends Component {
   remove = async () => {
     const { assignment_to_remove } = this.state;
     const { employee } = this.props;
+    this.setState({
+      delete_loading:true
+    })
     assignment_to_remove["employee_id"] = employee._id;
     const api = "employee_assignment/delete";
     const res = await apiPostRequest(api, assignment_to_remove);
@@ -106,6 +109,11 @@ class EmploeeAssignments extends Component {
           this.props.history.push(EMPLOYEE_ROUTE.replace(':id', employee._id))
       }
     }
+  setTimeout(() => {
+    this.setState({
+      delete_loading:false
+    })
+  }, 300);
   };
 
   close = () => {
@@ -133,7 +141,8 @@ updateState = (name, value) => {
       new_assignment,
       assignment_to_edit,
       assignment_to_remove,
-      page_assignment
+      page_assignment,
+      delete_loading
     } = this.state;
     const {system_text} = this.props.global
     const { active_section, employee, hide_page } = this.props;
@@ -152,6 +161,7 @@ updateState = (name, value) => {
           close={this.close}
           submit_text={system_text.YES}
           close_text={system_text.NO}
+          loading = {delete_loading}
         />
         {assignment_comments ? (
           <AssignmentComments
