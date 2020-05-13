@@ -261,7 +261,7 @@
   opacity: 0;
   transition: 0.3s all;
   pointer-events: none;
-
+  white-space: nowrap;
   >aside {
     position: absolute;
     width: 0;

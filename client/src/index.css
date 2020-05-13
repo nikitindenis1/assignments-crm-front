@@ -944,7 +944,8 @@ input:focus::placeholder {
   padding-right: 10px;
   opacity: 0;
   transition: 0.3s all;
-  pointer-events: none; }
+  pointer-events: none;
+  white-space: nowrap; }
   .smal__popup > aside {
     position: absolute;
     width: 0;
@@ -1646,9 +1647,13 @@ div[title="Superscript"] {
       .employee__page__assignments #employee__assignments__titles h3 {
         font-size: 15px;
         opacity: 0.7; }
-      .employee__page__assignments #employee__assignments__titles h3:nth-child(1) {
+      .employee__page__assignments #employee__assignments__titles svg {
+        cursor: pointer;
+        margin-left: 5px;
+        margin-right: 5px; }
+      .employee__page__assignments #employee__assignments__titles div:nth-child(1) {
         width: 550px; }
-      .employee__page__assignments #employee__assignments__titles h3:last-child {
+      .employee__page__assignments #employee__assignments__titles div:last-child {
         margin-left: auto;
         margin-right: 10px; }
     .employee__page__assignments #employee__assignments::-webkit-scrollbar {
@@ -2038,7 +2043,7 @@ div[title="Superscript"] {
   left: 10px;
   right: auto; }
 
-.rtl__body .employee__page__assignments #employee__assignments__titles h3:last-child {
+.rtl__body .employee__page__assignments #employee__assignments__titles div:last-child {
   margin-left: 5px;
   margin-right: auto; }
 
@@ -2073,7 +2078,7 @@ div[title="Superscript"] {
 @media only screen and (max-width: 750px) {
   .employee__page__assignments #employee__assignments .employee__page__assignment div:nth-child(1) {
     width: calc(100% - 170px); }
-  .employee__page__assignments #employee__assignments__titles h3:nth-child(1) {
+  .employee__page__assignments #employee__assignments__titles div:nth-child(1) {
     width: calc(100% - 180px); }
   .employee__assignment__comments > form {
     height: 500px;
@@ -2571,3 +2576,10 @@ div[title="Superscript"] {
     margin-left: 0px; }
   .settings__permissions {
     padding-left: 0px; } }
+
+.manager__assignments .sticky__top {
+  padding-top: 20px; }
+
+@media only screen and (max-width: 750px) {
+  .manager__assignments .sticky__top {
+    padding-top: 70px; } }

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {
   EMPLOYEE_ROUTE,
   EMPLOYEE_DASHBOARD_PAGE_ROUTE,
+  PERSONAL_ASSIGNMENTS_ROUTE,
 } from "../../../tools/routes";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import moment from "moment";
@@ -60,7 +61,11 @@ class EmployeeAssignmentPage extends Component {
   backToList = () => {
     const { user } = this.props.user;
     const { employee_id } = this.state;
-    if (user.is_manager) {
+    const {manager_assignments} = this.props
+    if(manager_assignments){
+      this.props.history.push(PERSONAL_ASSIGNMENTS_ROUTE);
+    }
+    else if (user.is_manager) {
       this.props.history.push(EMPLOYEE_ROUTE.replace(":id", employee_id));
     } else {
       this.props.history.push(

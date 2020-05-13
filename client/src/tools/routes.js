@@ -1,7 +1,10 @@
 export const EMPLOYEES_ROUTE = '/dashboard/employees'
 export const EMPLOYEE_ROUTE = '/dashboard/employees/:id'
 export const EMPLOYEE_ASSIGNMENT_ROUTE = '/dashboard/employees/:id/assignment/:assignment_id'
-export const ASSIGNMENTS_ROUTE = '/dashboard/assignments'
+export const ASSIGNMENTS_ROUTE = '/dashboard/templates'
+export const PERSONAL_ASSIGNMENTS_ROUTE = '/dashboard/personal-assignments'
+export const PERSONAL_ASSIGNMENTS_ROUTE_ASSIGNMENT = '/dashboard/personal-assignments/:assignment_id'
+
 export const DASHBOARD_ROUTE = '/dashboard'
 export const CATEGORY_ROUTE = '/dashboard'
 export const OVERVIEW_ROUTE = '/dashboard/overview'

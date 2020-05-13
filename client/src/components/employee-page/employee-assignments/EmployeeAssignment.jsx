@@ -9,6 +9,7 @@ import { hasPermission } from "../../../functions/permission_functions";
 import {
   EMPLOYEE_ASSIGNMENT_ROUTE,
   EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE,
+  PERSONAL_ASSIGNMENTS_ROUTE_ASSIGNMENT,
 } from "../../../tools/routes";
 import "moment/locale/he";
 
@@ -36,9 +37,18 @@ class EmployeeAssignment extends Component {
     }, 500);
   };
   goToAssignment = (m) => {
-    console.log(m);
+  const {manager_assignments} = this.props
+ 
     const { user } = this.props.user;
-    if (user.is_manager) {
+    if(manager_assignments){
+      this.props.history.push(
+        PERSONAL_ASSIGNMENTS_ROUTE_ASSIGNMENT.replace(
+          ":assignment_id",
+          m._id
+        )
+      );
+    }
+    else if ( user.is_manager) {
       this.props.history.push(
         EMPLOYEE_ASSIGNMENT_ROUTE.replace(":id", m.employee_id).replace(
           ":assignment_id",
@@ -56,7 +66,6 @@ class EmployeeAssignment extends Component {
   };
   render() {
     const { m } = this.props;
-    console.log(m);
     const { permissions, user } = this.props.user;
     const { hide } = this.state;
     const {language} = this.props.global;
@@ -88,12 +97,14 @@ class EmployeeAssignment extends Component {
         disabled: !hasPermission(user, permissions, DELETE_ASSIGNMENTS),
       },
     ];
+
+
     options = options.filter((val) => {
       if (val.param1 !== m.status) return val;
     });
 
     return (
-      <li
+  <li
         id={hide ? "employee__page__assignment__hidden" : ""}
         className="employee__page__assignment flex__start"
       >
@@ -114,7 +125,7 @@ class EmployeeAssignment extends Component {
                     .format("ddd, LL") : "-"}</h3>
         </div>
         <ElementActions width="150px" options={options} />
-      </li>
+      </li> 
     );
   }
 }

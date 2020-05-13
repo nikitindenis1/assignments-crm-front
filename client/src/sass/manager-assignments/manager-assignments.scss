@@ -1,0 +1,14 @@
+.manager__assignments{
+    .sticky__top{
+        padding-top: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 750px) {
+    .manager__assignments{
+        .sticky__top{
+            padding-top: 70px;
+        }  
+    }
+}

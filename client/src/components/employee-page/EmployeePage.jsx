@@ -26,7 +26,8 @@ class EmployeePage extends Component {
 
 
   async componentDidMount() {
-    const id = this.props.match.params.id;
+    const {manager} = this.props
+    const id = manager ?  manager  :this.props.match.params.id;
    setTimeout(() => {
     this.setState({
       page_loaded: true

@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { EMPLOYEES_ROUTE, ASSIGNMENTS_ROUTE, OVERVIEW_ROUTE, EMPLOYEE_DASHBOARD_SETTINGS, SETTINGS_ROUTE, EMPLOYEE_DASHBOARD_PAGE_ROUTE } from '../../tools/routes';
+import { EMPLOYEES_ROUTE, ASSIGNMENTS_ROUTE, OVERVIEW_ROUTE, EMPLOYEE_DASHBOARD_SETTINGS, SETTINGS_ROUTE, EMPLOYEE_DASHBOARD_PAGE_ROUTE, PERSONAL_ASSIGNMENTS_ROUTE } from '../../tools/routes';
 import SettingsIcon from "@material-ui/icons/Settings";
-
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 
 
 export  const manager_navigations = [
@@ -24,8 +24,15 @@ export  const manager_navigations = [
     {
         url: ASSIGNMENTS_ROUTE,
         text: 'TEMPLATES',
-        value:'assignments',
+        value:'templates',
         img: <AssignmentIcon />
+    },
+    {
+        url: PERSONAL_ASSIGNMENTS_ROUTE,
+        text: 'PERSONAL_ASSIGNMENTS',
+        value:'personal-assignments',
+        img: <AssignmentIndIcon />,
+        last:true
     },
     {
         url: SETTINGS_ROUTE,
@@ -34,6 +41,7 @@ export  const manager_navigations = [
         img: <SettingsIcon />,
         last:true
     }
+  
 ]
 
 export  const employee_navigations = [

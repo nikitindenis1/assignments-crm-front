@@ -10,12 +10,14 @@ import {
   EMPLOYEE_ASSIGNMENT_ROUTE,
   EMPLOYEE_DASHBOARD_PAGE_ROUTE,
   EMPLOYEE_DASHBOARD_ASSIGNMENT_ROUTE,
+  PERSONAL_ASSIGNMENTS_ROUTE,
+  PERSONAL_ASSIGNMENTS_ROUTE_ASSIGNMENT
 } from "../../../tools/routes";
 import EmployeeAssignmentPage from "../employee-assignment-page/EmployeeAssignmentPage";
 import HandleAssignment from "../../assignments/parts/HandleAssignment";
 import AssignmentComments from "../parts/AssignmentComments";
 import PopupWithFunction from "../../../parts/PopupWithFunction";
-
+import moment from 'moment'
 class EmploeeAssignments extends Component {
   constructor() {
     super();
@@ -23,6 +25,7 @@ class EmploeeAssignments extends Component {
   }
 
   async componentDidMount() {
+    
     this.getAssignments();
   }
 
@@ -47,10 +50,11 @@ class EmploeeAssignments extends Component {
   };
 
   createAndUpdateAssignment = async (assignment) => {
-    const { employee } = this.props;
+    const { employee, manager_assignments } = this.props;
     const api = `employee_assignment`;
     assignment["employee_id"] = employee._id;
     assignment["status"] = assignment.status ? assignment.status : "pending";
+    assignment["deadline"] = assignment.deadline ? assignment.deadline : moment().toDate()
     console.log(assignment);
     const res = await apiPostRequest(api, assignment);
     if (res.ok) {
@@ -65,7 +69,12 @@ class EmploeeAssignments extends Component {
         updated_employee.assignments.unshift(res.result);
         this.props.updateGlobalReducer("success", "Assignment created");
       }
-      this.props.updateParentState('employee',updated_employee);
+      if(manager_assignments){
+        this.props.updateUserReducer('user', updated_employee)
+      }else{
+        this.props.updateParentState('employee',updated_employee);
+      }
+     
       const url = window.location.pathname
       if(url.indexOf('assignment') > -1){
         this.updateAssignmentInAssignmentPage(res.result)
@@ -145,8 +154,10 @@ updateState = (name, value) => {
       delete_loading
     } = this.state;
     const {system_text} = this.props.global
-    const { active_section, employee, hide_page } = this.props;
+    const { active_section, employee, hide_page, manager_assignments } = this.props;
+    
     const {user} = this.props.user
+    
     return (
       <div   
       style ={{
@@ -187,7 +198,45 @@ updateState = (name, value) => {
           />
         ) : null}
 
-        <Switch>
+        {
+          manager_assignments ? 
+
+          <Switch>
+          <Route
+            exact
+            path={PERSONAL_ASSIGNMENTS_ROUTE}
+            render={() => (
+              <EmployeeTodoList
+              manager_assignments = {manager_assignments}
+                handleAssignmentComments={this.handleAssignmentComments}
+                handleAssignment={this.handleAssignment}
+                updateEmployee={this.updateEmployee}
+                employee={employee ? employee : {}}
+                assignments_loaded={assignments_loaded}
+                createAndUpdateAssignment = {this.createAndUpdateAssignment}
+                handleDelete = {this.handleDelete}
+              />
+            )}
+          />
+          <Route
+           exact
+            path={PERSONAL_ASSIGNMENTS_ROUTE_ASSIGNMENT}
+            render={() => (
+              <EmployeeAssignmentPage
+                employee={employee}
+                manager_assignments = {manager_assignments}
+                active_section={active_section}
+                handleAssignment={this.handleAssignment}
+                handleDelete = {this.handleDelete}
+                assignment = {page_assignment}
+                updateAssignmentInAssignmentPage = {this.updateAssignmentInAssignmentPage}
+                createAndUpdateAssignment = {this.createAndUpdateAssignment}
+                handleAssignmentComments = {this.handleAssignmentComments}
+              />
+            )}
+          />
+        </Switch> :
+          <Switch>
           <Route
             exact
             path={user.is_manager ? EMPLOYEE_ROUTE   : EMPLOYEE_DASHBOARD_PAGE_ROUTE}
@@ -219,7 +268,7 @@ updateState = (name, value) => {
               />
             )}
           />
-        </Switch>
+        </Switch>}
       </div>
     );
   }

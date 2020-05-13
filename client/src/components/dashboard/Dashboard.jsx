@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom"
-import { EMPLOYEES_ROUTE, EMPLOYEE_ROUTE, ASSIGNMENTS_ROUTE, OVERVIEW_ROUTE, SETTINGS_ROUTE, EMPLOYEE_ASSIGNMENT_ROUTE } from '../../tools/routes'
+import { EMPLOYEES_ROUTE, EMPLOYEE_ROUTE, ASSIGNMENTS_ROUTE, OVERVIEW_ROUTE, SETTINGS_ROUTE, EMPLOYEE_ASSIGNMENT_ROUTE, PERSONAL_ASSIGNMENTS_ROUTE } from '../../tools/routes'
 import Employees from '../employees/Employees'
 import Navbar from '../navbar/Navbar'
 import EmployeePage from '../employee-page/EmployeePage'
@@ -14,6 +14,7 @@ import { manager_settings } from '../settings/settings_routes'
 import { apiGetRequest } from '../../tools/api'
 import EmployeeAssignmentPage from '../employee-page/employee-assignment-page/EmployeeAssignmentPage'
 import InvalidRoute from '../invalid-route/InvalidRoute'
+import ManagerAssignments from '../manager-assignments/ManagerAssignments'
 
 class Dashboard extends Component {
   constructor(){
@@ -57,6 +58,7 @@ class Dashboard extends Component {
                             <Route  path={EMPLOYEE_ROUTE} render={() => <EmployeePage />} />
                             <Route  path={EMPLOYEE_ASSIGNMENT_ROUTE} render={() => <EmployeeAssignmentPage />} />
                             <Route exact path={ASSIGNMENTS_ROUTE} render={() => <AssignmentTemplates />} />
+                            <Route  path={PERSONAL_ASSIGNMENTS_ROUTE} render={() => <ManagerAssignments />} />
                             <Route  path={SETTINGS_ROUTE} render={() => <Settings 
                             settings_routes = {manager_settings}
                             />} />
