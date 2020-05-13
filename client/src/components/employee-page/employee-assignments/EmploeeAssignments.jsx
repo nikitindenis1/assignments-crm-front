@@ -96,6 +96,7 @@ class EmploeeAssignments extends Component {
 
   remove = async () => {
     const { assignment_to_remove } = this.state;
+    const {manager_assignments} = this.props
     const { employee } = this.props;
     this.setState({
       delete_loading:true
@@ -110,7 +111,12 @@ class EmploeeAssignments extends Component {
       );
       if (index >= 0) {
         updated.assignments.splice(index, 1);
-        this.props.updateEmployee(updated);
+        if(manager_assignments){
+          this.props.updateUserReducer('user', updated)
+        }else{
+          this.props.updateEmployee(updated);
+        }
+        
         this.close();
       }
       const url = window.location.pathname

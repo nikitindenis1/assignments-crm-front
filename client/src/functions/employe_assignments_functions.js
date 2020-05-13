@@ -10,7 +10,7 @@ export const filterEmployeeAssignments = (assignments, key, sort) => {
       if(sort) return arr.sort((a, b) => moment(b.deadline).diff(moment(a.deadline)))
       else return arr.sort((a, b) => moment(a.deadline).diff(moment(b.deadline)))
     }
-    else return []
+    else return false
     
     
 }
