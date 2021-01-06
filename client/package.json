@@ -8,7 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
     "add": "^2.0.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "backendless": "^5.8.10",
     "chart.js": "^2.9.3",
     "connected-react-router": "^6.8.0",
