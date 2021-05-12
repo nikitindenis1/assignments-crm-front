@@ -10,7 +10,7 @@
     "add": "^2.0.6",
     "axios": "^0.19.2",
     "backendless": "^5.8.10",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "connected-react-router": "^6.8.0",
     "date-fns": "^2.13.0",
     "draft-convert": "^2.1.8",
