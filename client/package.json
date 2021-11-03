@@ -37,7 +37,7 @@
     "react-switch": "^5.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "validator": "^13.0.0",
+    "validator": "^13.7.0",
     "yarn": "^1.22.4"
   },
   "scripts": {
